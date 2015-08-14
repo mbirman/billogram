@@ -2,10 +2,12 @@ module Billogram
   class Invoice < Resource
     endpoint 'billogram'
 
-    DEFAULT_OPTIONS = { page: 1, page_size: 50 }
+    relation :customer, :single
+    relation :regional_sweden, :single
+    relation :info, :single
 
-    def self.search(options = {})
-      super(DEFAULT_OPTIONS.merge(options))
-    end
+    relation :items, :many
+    relation :events, :many
+    relation :callbacks, :many
   end
 end

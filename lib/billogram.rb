@@ -1,7 +1,9 @@
 require "httparty"
 require "billogram/client"
 require "billogram/resource"
+require 'billogram/resources/customer'
 require 'billogram/resources/invoice'
+require 'billogram/resources/item'
 require "billogram/version"
 
 module Billogram
