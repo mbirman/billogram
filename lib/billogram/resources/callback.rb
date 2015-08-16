@@ -1,6 +1,8 @@
 module Billogram
   class Callback < Resource
-    relation :invoice
-    relation :event
+    attr_accessor :callback_id, :custom, :signature, :sandbox
+
+    relation :event, :one
+    relation :invoice, :one
   end
 end

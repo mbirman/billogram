@@ -6,7 +6,7 @@ module Billogram
 
     class << self
       def relations
-        @relations ||= {}
+        @relations ||= { one: Set.new, many: Set.new }
       end
 
       def endpoint(value = nil)
@@ -20,6 +20,11 @@ module Billogram
         parse_response(response.parsed_response["data"])
       end
 
+      def fetch(id)
+        response = Billogram.client.get("#{endpoint}/#{id}")
+        parse_response(response.parsed_response["data"])
+      end
+
       def parse_response(data)
         # TODO: refactor, error handling
         case data
@@ -30,29 +35,18 @@ module Billogram
         end
       end
 
-      def relation(relation_name, relation_type = :single)
-        relations[relation_name] = relation_type
+      def relation(relation_name, relation_type = :one)
+        relations[relation_type] << relation_name
+        attr_reader relation_name
       end
     end
 
-    attr_reader :attributes
-
-    def initialize(attributes)
-      @attributes = attributes
-      build_relations
-    end
-
-    def build_relations
-      self.class.relations.each do |name, type|
-        if relation_attrs = attributes.delete(name.to_s)
-          value = relation_class(name).new(relation_attrs)
-          instance_variable_set("@#{name}", value)
-        end
+    def initialize(attributes = {})
+      Hash(attributes).each do |key, value|
+        instance_variable_set("@#{key}", value) if respond_to?(key)
       end
-    end
 
-    def relation_class(relation_name)
-      Object.const_get("Billogram::#{relation_name.capitalize}")
+      RelationBuilder.new(self, attributes).call
     end
   end
 end

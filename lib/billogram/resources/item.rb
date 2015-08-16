@@ -1,6 +1,8 @@
 module Billogram
   class Item < Resource
-    relation :regional_sweden, :single
-    relation :bookkeeping, :single
+    attr_accessor :item_no, :title, :description, :price, :vat, :unit, :created_at, :updated_at
+
+    relation :bookkeeping, :one
+    relation :regional_sweden, :one
   end
 end

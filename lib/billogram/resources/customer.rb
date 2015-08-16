@@ -1,7 +1,9 @@
 module Billogram
   class Customer < Resource
-    relation :address, :single
-    relation :delivery_address, :single
-    relation :contact, :single
+    attr_accessor :customer_no, :name, :notes, :org_no, :vat_no, :created_at, :updated_at, :company_type
+
+    relation :address, :one
+    relation :contact, :one
+    relation :delivery_address, :one
   end
 end
