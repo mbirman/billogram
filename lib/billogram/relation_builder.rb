@@ -29,26 +29,15 @@ module Billogram
 
     def build_relation(type, relation_names)
       relation_names.each do |name|
-        if type == :one
-          build_one_relation(name)
-        elsif type == :many
-          build_many_relation(name)
+        if attrs = relation_attributes(name)
+          if type == :one
+            value = relation_class(name).new(attrs)
+          elsif type == :many
+            value = attrs.map{|item| relation_class(name[0..-2]).new(item) }
+          end
+
+          resource.public_send("#{name}=", value)
         end
-      end
-    end
-
-    def build_one_relation(name)
-      if attrs = relation_attributes(name)
-        value = relation_class(name).new attrs
-        resource.instance_variable_set("@#{name}", value)
-      end
-    end
-
-    def build_many_relation(name)
-      if attrs = relation_attributes(name)
-        singular = name[0..name.length-2]
-        value = attrs.map{|item| relation_class(singular).new(item) }
-        resource.instance_variable_set("@#{name}", value)
       end
     end
   end

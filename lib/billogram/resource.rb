@@ -37,13 +37,13 @@ module Billogram
 
       def relation(relation_name, relation_type = :one)
         relations[relation_type] << relation_name
-        attr_reader relation_name
+        attr_accessor relation_name
       end
     end
 
     def initialize(attributes = {})
       Hash(attributes).each do |key, value|
-        instance_variable_set("@#{key}", value) if respond_to?(key)
+        public_send("#{key}=", value) if respond_to?(key)
       end
 
       RelationBuilder.new(self, attributes).call
