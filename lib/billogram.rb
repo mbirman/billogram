@@ -1,5 +1,6 @@
 require "httparty"
 require "billogram/client"
+require "billogram/error"
 require "billogram/relation_builder"
 require "billogram/resource"
 require 'billogram/resources/address'

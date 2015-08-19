@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Billogram::Resource do
   subject { described_class }
 
-  describe ".parse_response" do
-    subject { described_class.parse_response(argument) }
+  describe ".build_objects" do
+    subject { described_class.build_objects(argument) }
 
     describe "when hash given" do
       let(:argument) { {attribute: 'test'} }

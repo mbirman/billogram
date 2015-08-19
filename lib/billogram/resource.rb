@@ -1,8 +1,6 @@
 module Billogram
   class Resource
-    attr_reader :data
-
-    DEFAULT_OPTIONS = { page: 1, page_size: 2 }
+    DEFAULT_OPTIONS = { page: 1, page_size: 50 }
 
     class << self
       def relations
@@ -11,33 +9,39 @@ module Billogram
 
       def endpoint(value = nil)
         @endpoint = value if value
-        @endpoint || name.demodulize.underscore.pluralize
+        @endpoint || "#{name.sub('Billogram::', '').downcase}s"
       end
 
       def search(options = {})
         query = DEFAULT_OPTIONS.merge(options)
         response = Billogram.client.get("#{endpoint}", {query: query})
-        parse_response(response.parsed_response["data"])
+        parse_response(response)
       end
 
       def fetch(id)
         response = Billogram.client.get("#{endpoint}/#{id}")
-        parse_response(response.parsed_response["data"])
+        parse_response(response)
       end
 
-      def parse_response(data)
-        # TODO: refactor, error handling
-        case data
-        when Hash then new(data)
-        when Array then data.map{|item| parse_response(item) }
-        when nil
-        else data
-        end
+      def parse_response(response)
+        response.code == 200 ? build_objects(response.parsed_response['data']) : process_error(response)
       end
 
       def relation(relation_name, relation_type = :one)
         relations[relation_type] << relation_name
         attr_accessor relation_name
+      end
+
+      def build_objects(data)
+        case data
+        when Hash then new(data)
+        when Array then data.map{|item| build_objects(item) }
+        else data
+        end
+      end
+
+      def process_error(response)
+        raise Billogram::Error.from_response(response)
       end
     end
 
