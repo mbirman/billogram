@@ -8,7 +8,25 @@ module Billogram
     end
 
     def get(*args)
-      self.class.get(*args)
+      handle_request(:get, *args)
+    end
+
+    def post(*args)
+      handle_request(:post, *args)
+    end
+
+    def put(*args)
+      handle_request(:put, *args)
+    end
+
+    def delete(*args)
+      handle_request(:delete, *args)
+    end
+
+    def handle_request(method, *args)
+      response = self.class.send(method, *args)
+      raise Billogram::Error.from_response(response) if response.code != 200
+      response
     end
   end
 end

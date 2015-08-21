@@ -15,16 +15,12 @@ module Billogram
       def search(options = {})
         query = DEFAULT_OPTIONS.merge(options)
         response = Billogram.client.get("#{endpoint}", {query: query})
-        parse_response(response)
+        build_objects(response)
       end
 
       def fetch(id)
         response = Billogram.client.get("#{endpoint}/#{id}")
-        parse_response(response)
-      end
-
-      def parse_response(response)
-        response.code == 200 ? build_objects(response.parsed_response['data']) : process_error(response)
+        build_objects(response)
       end
 
       def relation(relation_name, relation_type = :one)
@@ -38,10 +34,6 @@ module Billogram
         when Array then data.map{|item| build_objects(item) }
         else data
         end
-      end
-
-      def process_error(response)
-        raise Billogram::Error.from_response(response)
       end
     end
 
