@@ -23,6 +23,20 @@ module Billogram
         build_objects(response)
       end
 
+      def create(attributes)
+        response = Billogram.client.post("#{endpoint}", {body: attributes})
+        build_objects(response)
+      end
+
+      def update(id, attributes)
+        response = Billogram.client.put("#{endpoint}/#{id}", {query: attributes})
+        build_objects(response)
+      end
+
+      def delete(id)
+        Billogram.client.put("#{endpoint}/#{id}")
+      end
+
       def relation(relation_name, relation_type = :one)
         relations[relation_type] << relation_name
         attr_accessor relation_name
@@ -43,6 +57,14 @@ module Billogram
       end
 
       RelationBuilder.new(self, attributes).call
+    end
+
+    def update(attributes)
+      self.class.update(id, attributes)
+    end
+
+    def delete
+      self.class.delete(id)
     end
   end
 end
