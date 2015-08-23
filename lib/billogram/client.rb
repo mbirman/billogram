@@ -25,7 +25,7 @@ module Billogram
 
     def handle_request(method, *args)
       response = self.class.send(method, *args)
-      return response if response.code == 200
+      return response.parsed_response["data"] if response.code == 200
       raise Billogram::Error.from_response(response)
     end
   end
