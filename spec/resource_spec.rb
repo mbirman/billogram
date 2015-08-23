@@ -38,6 +38,10 @@ describe Billogram::Resource do
   end
 
   describe ".endpoint" do
+    after do
+      subject.endpoint("resources")
+    end
+
     describe "with parameter" do
       it "sets endpoint" do
         expect{subject.endpoint("test-value")}.to change{subject.endpoint}.from("resources").to('test-value')

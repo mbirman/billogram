@@ -24,12 +24,12 @@ module Billogram
       end
 
       def create(attributes)
-        response = Billogram.client.post("#{endpoint}", {body: attributes})
+        response = Billogram.client.post("#{endpoint}", {body: attributes.to_json})
         build_objects(response)
       end
 
       def update(id, attributes)
-        response = Billogram.client.put("#{endpoint}/#{id}", {query: attributes})
+        response = Billogram.client.put("#{endpoint}/#{id}", {body: attributes.to_json})
         build_objects(response)
       end
 
