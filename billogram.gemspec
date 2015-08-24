@@ -8,8 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Billogram::VERSION
   spec.authors       = ["Mark Birman"]
   spec.email         = ["birmanmark@gmail.com"]
+  spec.description   = %q{Simple ruby wrapper for Billogram API}
 
-  spec.summary       = %q{Simple ruby wrapper over Billogram API}
+  spec.summary       = "Ruby library providing access to Billogram API"
   spec.homepage      = "http://github.com/mbirman/billogram"
   spec.license       = "MIT"
 
@@ -17,6 +18,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.required_ruby_version = '~> 2.0'
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
