@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock", "~> 1.21"
   spec.add_development_dependency "dotenv", "~> 2.0"
   spec.add_dependency "httparty", "~> 0.13"
+  spec.add_dependency "activesupport", "~> 4.2"
 end
