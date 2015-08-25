@@ -16,7 +16,7 @@ module Billogram
     private
 
     def relation_class(relation_name)
-      Object.const_get("Billogram::#{relation_name.to_s.split('_').map(&:capitalize).join()}")
+      "Billogram::#{relation_name.to_s.classify}".constantize
     end
 
     def relation_attributes(relation_name)
@@ -33,7 +33,8 @@ module Billogram
           if type == :one
             value = relation_class(name).new(attrs)
           elsif type == :many
-            value = attrs.map{|item| relation_class(name[0..-2]).new(item) }
+            singular = name.to_s.singularize
+            value = attrs.map{|item| relation_class(singular).new(item) }
           end
 
           resource.public_send("#{name}=", value)

@@ -1,3 +1,5 @@
+require "active_support/core_ext/string/inflections.rb"
+
 module Billogram
   class Resource
     DEFAULT_OPTIONS = { page: 1, page_size: 50 }
@@ -9,7 +11,7 @@ module Billogram
 
       def endpoint(value = nil)
         @endpoint = value if value
-        @endpoint || "#{name.sub('Billogram::', '').downcase}s"
+        @endpoint || name.demodulize.underscore.pluralize
       end
 
       def search(options = {})
