@@ -16,23 +16,19 @@ module Billogram
 
       def search(options = {})
         query = DEFAULT_OPTIONS.merge(options)
-        response = Billogram.client.get("#{endpoint}", {query: query})
-        build_objects(response)
+        perform_request("#{endpoint}", :get, query)
       end
 
       def fetch(id)
-        response = Billogram.client.get("#{endpoint}/#{id}")
-        build_objects(response)
+        perform_request("#{endpoint}/#{id}", :get)
       end
 
       def create(attributes)
-        response = Billogram.client.post("#{endpoint}", {body: attributes.to_json})
-        build_objects(response)
+        perform_request("#{endpoint}", :post, attributes)
       end
 
       def update(id, attributes)
-        response = Billogram.client.put("#{endpoint}/#{id}", {body: attributes.to_json})
-        build_objects(response)
+        perform_request("#{endpoint}/#{id}", :put, attributes)
       end
 
       def delete(id)
@@ -50,6 +46,19 @@ module Billogram
         when Array then data.map{|item| build_objects(item) }
         else data
         end
+      end
+
+      def perform_request(url, type, params = {})
+        case type
+        when :post, :put
+          query = { body: params.to_json }
+        when :get
+          query = { query: params }
+        else nil
+        end
+
+        response = Billogram.client.send(type, url, query)
+        build_objects(response) unless type == :delete
       end
     end
 
