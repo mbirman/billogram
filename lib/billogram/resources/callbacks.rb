@@ -1,5 +1,5 @@
 module Billogram
-  class Callback < Resource
+  class Callbacks < Resource
     attr_accessor :callback_id, :custom, :signature, :sandbox
 
     relation :event, :one

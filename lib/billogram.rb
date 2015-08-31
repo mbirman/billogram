@@ -5,7 +5,7 @@ require "billogram/relation_builder"
 require "billogram/resource"
 require 'billogram/resources/address'
 require 'billogram/resources/bookkeeping'
-require 'billogram/resources/callback'
+require 'billogram/resources/callbacks'
 require 'billogram/resources/contact'
 require 'billogram/resources/customer'
 require 'billogram/resources/data'
