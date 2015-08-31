@@ -77,5 +77,13 @@ module Billogram
     def delete
       self.class.delete(id)
     end
+
+    def perform_request(*args)
+      self.class.perform_request(*args)
+    end
+
+    def endpoint
+      self.class.endpoint
+    end
   end
 end

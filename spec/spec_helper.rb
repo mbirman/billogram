@@ -4,6 +4,8 @@ require 'webmock/rspec'
 require 'helper'
 require 'dotenv'
 require 'rspec/its'
+require 'support/shared_examples'
+
 Dotenv.load
 
 Billogram.configure do |config|

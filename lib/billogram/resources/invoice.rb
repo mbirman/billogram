@@ -17,44 +17,49 @@ module Billogram
     relation :events, :many
 
     def sell
-      perform_request("#{endpoint}/#{id}/command/send", :post)
+      perform_request(command_path(:sell), :post)
     end
 
     def collect
-      perform_request("#{endpoint}/#{id}/command/collect", :post)
+      perform_request(command_path(:collect), :post)
     end
 
-    def writeoff(options = {})
-      perform_request("#{endpoint}/#{id}/command/writeoff", :post)
+    def writeoff
+      perform_request(command_path(:writeoff), :post)
     end
 
-    def send!(options = {})
-      # https://billogram.com/api/documentation#billogram_call_send
-      perform_request("#{endpoint}/#{id}/command/send", :post, options)
+    def send!(method: )
+      perform_request(command_path(:send), :post, {method: method})
     end
 
-    def resend(options = {})
-      perform_request("#{endpoint}/#{id}/command/resend", :post, options)
+    def resend(method: )
+      perform_request(command_path(:resend), :post, {method: method})
     end
 
-    def remind(options = {})
-      perform_request("#{endpoint}/#{id}/command/remind", :post, options)
+    def remind(method: )
+      perform_request(command_path(:remind), :post, {method: method})
     end
 
-    def payment(options = {})
-      perform_request("#{endpoint}/#{id}/command/payment", :post, options)
+    def payment(amount: )
+      perform_request(command_path(:payment), :post, {amount: amount})
     end
 
     def credit(options = {})
-      perform_request("#{endpoint}/#{id}/command/credit", :post, options)
+      perform_request(command_path(:credit), :post, options)
     end
 
-    def message(options = {})
-      perform_request("#{endpoint}/#{id}/command/message", :post, options)
+    def message(message: )
+      perform_request(command_path(:message), :post, {message: message})
     end
 
     def attach(options = {})
-      perform_request("#{endpoint}/#{id}/command/attach", :post, options)
+      perform_request(command_path(:attach), :post, options)
+    end
+
+    private
+
+    def command_path(command)
+      "#{endpoint}/#{id}/command/#{command}"
     end
   end
 end
