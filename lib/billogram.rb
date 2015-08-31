@@ -17,6 +17,8 @@ require 'billogram/resources/item'
 require 'billogram/resources/regional_sweden'
 require "billogram/version"
 
+require "billogram/inflections"
+
 module Billogram
   class << self
     attr_accessor :username, :password, :base_uri
