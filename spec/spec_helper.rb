@@ -3,6 +3,7 @@ require 'billogram'
 require 'webmock/rspec'
 require 'helper'
 require 'dotenv'
+require 'rspec/its'
 Dotenv.load
 
 Billogram.configure do |config|
