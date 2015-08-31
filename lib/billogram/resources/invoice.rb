@@ -12,6 +12,7 @@ module Billogram
     relation :info, :one
     relation :customer, :one
     relation :regional_sweden, :one
+    relation :callbacks, :one
 
     relation :items, :many
     relation :events, :many
