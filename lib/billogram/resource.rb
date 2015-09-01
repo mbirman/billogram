@@ -85,5 +85,12 @@ module Billogram
     def endpoint
       self.class.endpoint
     end
+
+    def to_json(*args)
+      instance_variables
+        .map{|var| ["#{var}"[1..-1], instance_variable_get(var)]}
+        .to_h
+        .to_json(*args)
+    end
   end
 end
