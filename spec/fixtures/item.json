@@ -1,0 +1,12 @@
+{
+    "item_no": "CLN",
+    "title": "Apartment cleaning",
+    "description": "Vacuum cleaning floor, dusting shelves and taking out trash",
+    "price": 130,
+    "vat": 25,
+    "unit": "hour",
+    "bookkeeping": {
+        "income_account": "302",
+        "vat_account": "303"
+    }
+}

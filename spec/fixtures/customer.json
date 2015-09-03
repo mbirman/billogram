@@ -1,0 +1,16 @@
+{
+    "customer_no": 10032,
+    "name": "Peter Jonsson",
+    "company_type": "individual",
+    "org_no": "",
+    "contact": {
+        "name": "Peter Jonsson",
+        "email": "peter.jonsson@example.com"
+    },
+    "address": {
+        "street_address": "Lavendelväg 27",
+        "zipcode": "12345",
+        "city": "Stadby",
+        "country": "SE"
+    }
+}

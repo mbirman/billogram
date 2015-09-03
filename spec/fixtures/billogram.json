@@ -1,116 +1,113 @@
 {
-   "status" : "OK",
-   "data" : {
-       "id" : "gQjEEZL",
-       "created_at" : "2013-09-05 15:28:51",
-       "updated_at" : "2013-09-05 15:35:42",
-       "attested_at" : "2013-09-05 15:28:52",
-       "currency" : "SEK",
-       "reminder_fee" : "50.0",
-       "interest_rate" : 8.5,
-       "state" : "Unpaid",
-       "attachment" : "orderdetails.pdf",
-       "automatic_reminders" : true,
-       "rounding_value" : -0.25,
-       "ocr_number" : "324810046924",
-       "events" : [
-           {
-               "type" : "BillogramCreated",
-               "created_at" : "2013-09-05 15:28:51",
-               "data" : null
-           },
-           {
-               "type" : "BillogramSent",
-               "created_at" : "2013-09-05 15:28:52",
-               "data" : {
-                   "invoice_no" : 146,
-                   "letter_id" : "jc3NTIyOGEz6d46fc6ff9613f5c3b2ebd6d2aa",
-                   "delivery_method" : "Letter",
-                   "remaining_sum" : 411,
-                   "total_sum" : 411
-               }
+   "id" : "gQjEEZL",
+   "created_at" : "2013-09-05 15:28:51",
+   "updated_at" : "2013-09-05 15:35:42",
+   "attested_at" : "2013-09-05 15:28:52",
+   "currency" : "SEK",
+   "reminder_fee" : "50.0",
+   "interest_rate" : 8.5,
+   "state" : "Unpaid",
+   "attachment" : "orderdetails.pdf",
+   "automatic_reminders" : true,
+   "rounding_value" : -0.25,
+   "ocr_number" : "324810046924",
+   "events" : [
+       {
+           "type" : "BillogramCreated",
+           "created_at" : "2013-09-05 15:28:51",
+           "data" : null
+       },
+       {
+           "type" : "BillogramSent",
+           "created_at" : "2013-09-05 15:28:52",
+           "data" : {
+               "invoice_no" : 146,
+               "letter_id" : "jc3NTIyOGEz6d46fc6ff9613f5c3b2ebd6d2aa",
+               "delivery_method" : "Letter",
+               "remaining_sum" : 411,
+               "total_sum" : 411
            }
-       ],
-       "due_date" : "2013-10-05",
-       "due_days" : 30,
-       "invoice_date" : "2013-09-05",
-       "callbacks" : {
-           "url" : "http://example.org/billogram-callback",
-           "sign_key" : "bowties-are-cool!",
-           "custom" : null
+       }
+   ],
+   "due_date" : "2013-10-05",
+   "due_days" : 30,
+   "invoice_date" : "2013-09-05",
+   "callbacks" : {
+       "url" : "http://example.org/billogram-callback",
+       "sign_key" : "bowties-are-cool!",
+       "custom" : null
+   },
+   "interest_fee" : 0,
+   "invoice_no" : 146,
+   "customer" : {
+       "name" : "Company AB",
+       "vat_no" : "SE777777777701",
+       "phone" : null,
+       "customer_no" : 12,
+       "address" : {
+           "city" : "STOCKHOLM",
+           "country" : "SE",
+           "attention" : "",
+           "zipcode" : "11444",
+           "careof" : "",
+           "street_address" : "Gatan 2"
        },
-       "interest_fee" : 0,
-       "invoice_no" : 146,
-       "customer" : {
-           "name" : "Company AB",
-           "vat_no" : "SE777777777701",
-           "phone" : null,
-           "customer_no" : 12,
-           "address" : {
-               "city" : "STOCKHOLM",
-               "country" : "SE",
-               "attention" : "",
-               "zipcode" : "11444",
-               "careof" : "",
-               "street_address" : "Gatan 2"
-           },
-           "email" :"",
-           "org_no" : "777777-7768"
-       },
-       "info" : {
-           "reference_number" : "",
-           "our_reference" : "",
-           "order_no" : "",
-           "shipping_date" : null,
-           "order_date" : "2013-09-01",
-           "message" : "Thank you for using our services. Have a nice weekend.",
-           "delivery_date" : null,
-           "your_reference" : "Adam Andreasson"
-       },
+       "email" :"",
+       "org_no" : "777777-7768"
+   },
+   "info" : {
+       "reference_number" : "",
+       "our_reference" : "",
+       "order_no" : "",
+       "shipping_date" : null,
+       "order_date" : "2013-09-01",
+       "message" : "Thank you for using our services. Have a nice weekend.",
+       "delivery_date" : null,
+       "your_reference" : "Adam Andreasson"
+   },
+   "invoice_fee" : 29,
+   "invoice_fee_vat" : 25,
+   "items" : [
+       {
+           "title" : "Software, administration features",
+           "price" : 300,
+           "vat" : 25,
+           "unit" : "hour",
+           "count" : 1,
+           "discount" : 0,
+           "item_no" : "3",
+           "description" :"",
+           "regional_sweden" : {
+               "rotavdrag" :false
+           }
+       }
+   ],
+   "total_sum" : 411,
+   "remaining_sum" : 411,
+   "reminder_count" : 0,
+   "delivery_method" : "Letter",
+   "url" : "https://billogram.com/r/324810046924/ABCDE",
+   "flags" : [],
+   "regional_sweden" : {
+       "rotavdrag" : 0,
+       "rotavdrag_personal_number" : "",
+       "rotavdrag_description" : "",
+       "reversed_vat" : false
+   },
+   "detailed_sums" : {
        "invoice_fee" : 29,
        "invoice_fee_vat" : 25,
-       "items" : [
-           {
-               "title" : "Software, administration features",
-               "price" : 300,
-               "vat" : 25,
-               "unit" : "hour",
-               "count" : 1,
-               "discount" : 0,
-               "item_no" : "3",
-               "description" :"",
-               "regional_sweden" : {
-                   "rotavdrag" :false
-               }
-           }
-       ],
-       "total_sum" : 411,
+       "net_sum" : 329,
+       "vat_sum" : 82.25,
+       "gross_sum" : 411.25,
+       "rounding" : -0.25,
+       "reminder_fee" : 0,
+       "interest_fee" : 0,
+       "paid_sum" : 0,
+       "collector_paid_sum" : 0,
        "remaining_sum" : 411,
-       "reminder_count" : 0,
-       "delivery_method" : "Letter",
-       "url" : "https://billogram.com/r/324810046924/ABCDE",
-       "flags" : [],
        "regional_sweden" : {
-           "rotavdrag" : 0,
-           "rotavdrag_personal_number" : "",
-           "rotavdrag_description" : "",
-           "reversed_vat" : false
-       },
-       "detailed_sums" : {
-           "invoice_fee" : 29,
-           "invoice_fee_vat" : 25,
-           "net_sum" : 329,
-           "vat_sum" : 82.25,
-           "gross_sum" : 411.25,
-           "rounding" : -0.25,
-           "reminder_fee" : 0,
-           "interest_fee" : 0,
-           "paid_sum" : 0,
-           "collector_paid_sum" : 0,
-           "remaining_sum" : 411,
-           "regional_sweden" : {
-               "rotavdrag_sum" : 0
-           }
+           "rotavdrag_sum" : 0
        }
    }
 }
