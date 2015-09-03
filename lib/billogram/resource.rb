@@ -11,7 +11,7 @@ module Billogram
 
       def endpoint(value = nil)
         @endpoint = value if value
-        @endpoint || name.demodulize.underscore.pluralize
+        @endpoint || name.demodulize.underscore
       end
 
       def search(options = {})
