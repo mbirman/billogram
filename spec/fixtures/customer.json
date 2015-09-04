@@ -12,5 +12,11 @@
         "zipcode": "12345",
         "city": "Stadby",
         "country": "SE"
+    },
+    "delivery_address": {
+        "street_address": "Lavendelväg 27",
+        "zipcode": "12345",
+        "city": "Stadby",
+        "country": "SE"
     }
 }

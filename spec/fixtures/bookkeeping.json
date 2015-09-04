@@ -1,0 +1,20 @@
+{
+    "account_receivable_account": "1500",
+    "banking_account": "1920",
+    "client_funds_account": "1940",
+    "factoring_receivable_account": "",
+    "income_account_for_vat_0": "3004",
+    "income_account_for_vat_12": "3002",
+    "income_account_for_vat_25": "3001",
+    "income_account_for_vat_6": "3003",
+    "interest_fee_account": "8313",
+    "regional_sweden": {
+        "rotavdrag_account": "1513"
+    },
+    "reminder_fee_account": "8313",
+    "reversed_vat_account": "3231",
+    "rounding_account": "3740",
+    "vat_account_for_vat_12": "2620",
+    "vat_account_for_vat_25": "2610",
+    "vat_account_for_vat_6": "2630"
+}
