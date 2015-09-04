@@ -4,6 +4,6 @@ module Billogram
 
     attr_accessor :created_at, :type
 
-    relation :data, :one
+    relation :data, :one, class_override: "Data"
   end
 end

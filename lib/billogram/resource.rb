@@ -6,7 +6,7 @@ module Billogram
 
     class << self
       def relations
-        @relations ||= { one: Set.new, many: Set.new }
+        @relations ||= []
       end
 
       def endpoint(value = nil)
@@ -19,7 +19,7 @@ module Billogram
         perform_request("#{endpoint}", :get, query)
       end
 
-      def fetch(id)
+      def fetch(id = nil)
         perform_request("#{endpoint}/#{id}", :get)
       end
 
@@ -35,9 +35,9 @@ module Billogram
         Billogram.client.put("#{endpoint}/#{id}")
       end
 
-      def relation(relation_name, relation_type = :one)
-        relations[relation_type] << relation_name
-        attr_accessor relation_name
+      def relation(name, type, class_override: nil)
+        relations << Relation.new(name, type, class_override: class_override)
+        attr_accessor name
       end
 
       def build_objects(data)

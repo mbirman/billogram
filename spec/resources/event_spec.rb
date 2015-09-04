@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Billogram::Event do
-  subject { described_class.new }
+  subject { described_class.new(fixture("event")) }
 
   its(:endpoint) { is_expected.to eq('billogram_event') }
 

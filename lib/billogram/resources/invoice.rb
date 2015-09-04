@@ -12,8 +12,8 @@ module Billogram
     relation :info, :one
     relation :customer, :one
     relation :regional_sweden, :one
-    relation :callbacks, :one
-    relation :detailed_sums, :one
+    relation :callbacks, :one, class_override: "Callbacks"
+    relation :detailed_sums, :one, class_override: "DetailedSums"
 
     relation :items, :many
     relation :events, :many

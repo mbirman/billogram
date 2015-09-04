@@ -63,7 +63,7 @@ describe Billogram::Resource do
   
   describe ".relation" do
     before do
-      subject.relation(:one_relation)
+      subject.relation(:one_relation, :one)
       subject.relation(:many_relations, :many)
     end
 
@@ -73,7 +73,7 @@ describe Billogram::Resource do
     end
 
     it "adds relation to class variable" do
-      expect(subject.relations).to include({one: [:one_relation], many: [:many_relations]})
+      expect(subject.relations).to include(Billogram::Relation)
     end
   end
 end
