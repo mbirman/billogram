@@ -24,8 +24,6 @@ require "billogram/resources/settings"
 require "billogram/resources/tax"
 require "billogram/version"
 
-require "billogram/inflections"
-
 module Billogram
   class << self
     attr_accessor :username, :password, :base_uri
