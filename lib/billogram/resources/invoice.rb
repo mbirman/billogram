@@ -1,7 +1,6 @@
 module Billogram
   class Invoice < Resource
     endpoint 'billogram'
-
     attr_accessor :id, :invoice_no, :ocr_number, :invoice_date, :due_date, :due_days, 
                   :invoice_fee, :invoice_fee_vat, :reminder_fee, :interest_rate,
                   :interest_fee, :currency, :delivery_method, :state, :url, :flags,
@@ -17,6 +16,9 @@ module Billogram
 
     relation :items, :many
     relation :events, :many
+
+    extend Forwardable
+    delegate perform_request: self
 
     def sell
       perform_request(command_path(:sell), :post)
