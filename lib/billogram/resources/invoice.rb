@@ -17,53 +17,23 @@ module Billogram
     relation :items, :many
     relation :events, :many
 
-    extend Forwardable
-    delegate perform_request: self
+    COMMANDS = [ :sell, :remind, :collect, :writeoff, :resend, :remind, :payment, :credit, :message, :attach ]
 
-    def sell
-      perform_request(command_path(:sell), :post)
-    end
-
-    def collect
-      perform_request(command_path(:collect), :post)
-    end
-
-    def writeoff
-      perform_request(command_path(:writeoff), :post)
+    COMMANDS.each do |command|
+      define_method command do |*args|
+        send_command(command, *args)
+      end
     end
 
     def send!(method: )
-      perform_request(command_path(:send), :post, {method: method})
-    end
-
-    def resend(method: )
-      perform_request(command_path(:resend), :post, {method: method})
-    end
-
-    def remind(method: )
-      perform_request(command_path(:remind), :post, {method: method})
-    end
-
-    def payment(amount: )
-      perform_request(command_path(:payment), :post, {amount: amount})
-    end
-
-    def credit(options = {})
-      perform_request(command_path(:credit), :post, options)
-    end
-
-    def message(message: )
-      perform_request(command_path(:message), :post, {message: message})
-    end
-
-    def attach(options = {})
-      perform_request(command_path(:attach), :post, options)
+      send_command(:send, {method: method})
     end
 
     private
 
-    def command_path(command)
-      "#{endpoint}/#{id}/command/#{command}"
+    def send_command(command, options = {})
+      path = "#{endpoint}/#{id}/command/#{command}"
+      self.class.perform_request(:post, path, options)
     end
   end
 end
