@@ -1,8 +1,6 @@
 # Billogram
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/billogram`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Simple ruby wrapper for [Billogram](https://billogram.com) API
 
 ## Installation
 
@@ -22,7 +20,32 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First you need to configure the client
+
+```ruby
+Billogram.configure do |config|
+  config.username = "6402-qz0UHqRJ"
+  config.password = "55e041056840d54dc8274f70c0a4170f"
+end
+```
+
+Add this code to `config/initializers/billogram.rb` if you're using Rails and don't forget to restart the server.
+
+Next step is to actually make API calls. Dead simple.
+
+## Resources
+
+We have 7 endpoints each represented by a class: `Invoice`, `Item`, `Customer`, `Event`, `Settings`, `Report`, `Logotype`
+
+Most of them support create, fetch, update actions as well as [search](https://billogram.com/api/documentation#object_search_parameters).
+
+Also there are nested resources (Address for instance), you cannot get them directly but only through the resource they belong.
+
+```ruby
+  Billogram::Address.search()               # =>  undefined method `search' for Billogram::Address:Class
+  customer = Billogram::Customer.fetch(32)
+  customer.address                          # => #<Billogram::Address:0x007f9aebafd358>
+````
 
 ## Development
 
@@ -38,4 +61,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
