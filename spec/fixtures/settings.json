@@ -33,7 +33,10 @@
    },
    "invoices":{  
       "automatic_reminders":[  
-
+         {
+            "message":"",
+            "delay_days":"5"
+         }
       ],
       "default_interest_rate":8.5,
       "default_invoice_fee":0.0,
