@@ -96,4 +96,80 @@ describe Billogram::Resource do
       described_class.perform_request(:get, "resource", query)
     end
   end
+
+  describe ".search" do
+    describe "without parameters" do
+      let(:search_params) { described_class::DEFAULT_SEARCH_OPTIONS }
+
+      it "uses default options" do
+        expect(described_class).to receive(:perform_request).with(:get, "resource", search_params)
+        described_class.search
+      end
+    end
+
+    describe "with parameters" do
+      let(:search_params) { { page_size: 5, page: 2} }
+
+      it "overrides default options" do
+        expect(described_class).to receive(:perform_request).with(:get, "resource", search_params)
+        described_class.search(search_params)
+      end
+    end
+  end
+
+  describe ".create" do
+    it "calls #perform_request" do
+      attrs = { field: 1, another: "value" }
+      expect(subject).to receive(:perform_request).with(:post, "resource", attrs)
+      subject.create(attrs)
+    end
+  end
+
+  describe ".fetch" do
+    it "calls #perform_request" do
+      expect(subject).to receive(:perform_request).with(:get, "resource/1")
+      subject.fetch(1)
+    end
+  end
+
+  describe ".update" do
+    it "calls #perform_request" do
+      attrs = { field: 1, another: "value" }
+      expect(subject).to receive(:perform_request).with(:put, "resource/1", attrs)
+      subject.update(1, attrs)
+    end
+  end
+
+  describe ".delete" do
+    it "calls #perform_request" do
+      expect(subject).to receive(:perform_request).with(:delete, "resource/1")
+      subject.delete(1)
+    end
+  end
+
+  describe "#update" do
+    let(:resource) { described_class.new }
+
+    before do
+      allow(resource).to receive(:id).and_return(1)
+    end
+
+    it "forwards method call to the class" do
+      expect(subject).to receive(:update).with(resource.id, {})
+      resource.update({})
+    end
+  end
+
+  describe "#delete" do
+    let(:resource) { described_class.new }
+
+    before do
+      allow(resource).to receive(:id).and_return(1)
+    end
+
+    it "forwards method call to the class" do
+      expect(subject).to receive(:delete).with(resource.id)
+      resource.delete
+    end
+  end
 end
