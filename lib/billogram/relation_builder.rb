@@ -15,16 +15,12 @@ module Billogram
 
     private
 
-    def extract_attributes(relation)
-      attributes.delete(relation.name)
-    end
-
     def resource_relations
       resource.class.relations
     end
 
     def build_relation(relation)
-      if attrs = extract_attributes(relation)
+      if attrs = attributes.delete(relation.name)
         value = relation.relation_class.build_objects(attrs)
         resource.public_send("#{relation.name}=", value)
       end

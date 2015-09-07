@@ -9,6 +9,8 @@ describe Billogram::Item do
   it { is_expected.to respond_to(:title) }
   it { is_expected.to respond_to(:description) }
   it { is_expected.to respond_to(:price) }
+  it { is_expected.to respond_to(:count) }
+  it { is_expected.to respond_to(:discount) }
   it { is_expected.to respond_to(:vat) }
   it { is_expected.to respond_to(:unit) }
   it { is_expected.to respond_to(:created_at) }

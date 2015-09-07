@@ -8,7 +8,6 @@ describe Billogram::Resource do
 
     describe "when hash given" do
       let(:argument) { {attribute: 'test'} }
-
       it { is_expected.to be_a(Billogram::Resource)}
     end
 

@@ -7,6 +7,8 @@ describe Billogram::Customer do
 
   it { is_expected.to respond_to(:customer_no) }
   it { is_expected.to respond_to(:name) }
+  it { is_expected.to respond_to(:phone) }
+  it { is_expected.to respond_to(:email) }
   it { is_expected.to respond_to(:notes) }
   it { is_expected.to respond_to(:org_no) }
   it { is_expected.to respond_to(:vat_no) }
