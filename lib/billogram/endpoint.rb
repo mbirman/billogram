@@ -7,11 +7,11 @@ module Billogram
 
     module InstanceMethods
       def update(attributes)
-        self.class.update(id, attributes)
+        self.class.perform_request(:put, "#{endpoint}/#{id}", attributes)
       end
 
       def delete
-        self.class.delete(id)
+        self.class.perform_request(:delete, "#{endpoint}/#{id}")
       end
 
       def endpoint
@@ -42,14 +42,6 @@ module Billogram
 
       def create(attributes)
         perform_request(:post, "#{endpoint}", attributes)
-      end
-
-      def update(id, attributes)
-        perform_request(:put, "#{endpoint}/#{id}", attributes)
-      end
-
-      def delete(id)
-        perform_request(:delete, "#{endpoint}/#{id}")
       end
 
       def perform_request(type, url, params = {})

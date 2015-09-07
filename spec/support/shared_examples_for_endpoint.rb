@@ -80,21 +80,6 @@ shared_examples_for "a resource with endpoint" do |endpoint|
     end
   end
 
-  describe ".update" do
-    it "calls #perform_request" do
-      attrs = { field: 1, another: "value" }
-      expect(subject).to receive(:perform_request).with(:put, "#{endpoint}/1", attrs)
-      subject.update(1, attrs)
-    end
-  end
-
-  describe ".delete" do
-    it "calls #perform_request" do
-      expect(subject).to receive(:perform_request).with(:delete, "#{endpoint}/1")
-      subject.delete(1)
-    end
-  end
-
   describe "#update" do
     let(:resource) { described_class.new }
 
@@ -103,7 +88,7 @@ shared_examples_for "a resource with endpoint" do |endpoint|
     end
 
     it "forwards method call to the class" do
-      expect(subject).to receive(:update).with(resource.id, {})
+      expect(subject).to receive(:perform_request).with(:put, "#{endpoint}/#{resource.id}", {})
       resource.update({})
     end
   end
@@ -116,7 +101,7 @@ shared_examples_for "a resource with endpoint" do |endpoint|
     end
 
     it "forwards method call to the class" do
-      expect(subject).to receive(:delete).with(resource.id)
+      expect(subject).to receive(:perform_request).with(:delete, "#{endpoint}/#{resource.id}")
       resource.delete
     end
   end
