@@ -32,7 +32,7 @@ module Billogram
       end
 
       def delete(id)
-        Billogram.client.put("#{endpoint}/#{id}")
+        perform_request("#{endpoint}/#{id}", :delete)
       end
 
       def relation(name, type, class_override: nil)
@@ -54,11 +54,12 @@ module Billogram
           query = { body: params.to_json }
         when :get
           query = { query: params }
-        else nil
+        when :delete
+          query = {}
         end
 
         response = Billogram.client.send(type, url, query)
-        build_objects(response) unless type == :delete
+        build_objects(response)
       end
     end
 

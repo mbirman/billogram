@@ -14,6 +14,8 @@ describe Billogram::Customer do
   it { is_expected.to respond_to(:updated_at) }
   it { is_expected.to respond_to(:company_type) }
 
+  its(:id) { is_expected.to eq(subject.customer_no) }
+
   describe "relations" do
     its(:contact) { is_expected.to be_a(Billogram::Contact) }
     its(:address) { is_expected.to be_a(Billogram::Address) }

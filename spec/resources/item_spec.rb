@@ -14,6 +14,8 @@ describe Billogram::Item do
   it { is_expected.to respond_to(:created_at) }
   it { is_expected.to respond_to(:updated_at) }
 
+  its(:id) { is_expected.to eq(subject.item_no) }
+
   describe "relations" do
     its(:bookkeeping) { is_expected.to be_a(Billogram::Bookkeeping) }
   end
