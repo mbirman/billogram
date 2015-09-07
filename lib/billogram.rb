@@ -31,7 +31,10 @@ require "billogram/version"
 
 module Billogram
   class << self
-    attr_accessor :username, :password, :base_uri
+    BASE_URI = "https://billogram.com/api/v2/"
+
+    attr_accessor :username, :password
+    attr_writer :base_uri
 
     def client
       @client ||= Client.new(username, password, base_uri)
@@ -39,6 +42,10 @@ module Billogram
 
     def configure
       yield self if block_given?
+    end
+
+    def base_uri
+      @base_uri ||= BASE_URI
     end
   end
 end
