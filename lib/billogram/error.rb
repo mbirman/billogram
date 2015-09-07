@@ -8,12 +8,7 @@ module Billogram
     class InternalServerError < Error; end
 
     def self.from_response(response)
-      status  = response.response.code.to_i
-      body    = response.body.to_s
-      headers = response.headers
-      message = error_message(response)
-
-      if klass =  case status
+      if klass =  case response.code.to_i
                   when 400      then BadRequest
                   when 401      then Unauthorized
                   when 403      then Forbidden
@@ -21,15 +16,7 @@ module Billogram
                   when 500      then InternalServerError
                   else               Billogram::Error
                   end
-        klass.new(message)
-      end
-    end
-
-    private
-
-    def self.error_message(response)
-      if data = response["data"]
-        data.fetch("message", "")
+        klass.new(response["data"]["message"])
       end
     end
   end
