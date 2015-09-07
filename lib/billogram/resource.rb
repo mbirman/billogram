@@ -16,23 +16,23 @@ module Billogram
 
       def search(options = {})
         query = DEFAULT_OPTIONS.merge(options)
-        perform_request("#{endpoint}", :get, query)
+        perform_request(:get, "#{endpoint}", query)
       end
 
       def fetch(id = nil)
-        perform_request("#{endpoint}/#{id}", :get)
+        perform_request(:get, "#{endpoint}/#{id}")
       end
 
       def create(attributes)
-        perform_request("#{endpoint}", :post, attributes)
+        perform_request(:post, "#{endpoint}", attributes)
       end
 
       def update(id, attributes)
-        perform_request("#{endpoint}/#{id}", :put, attributes)
+        perform_request(:put, "#{endpoint}/#{id}", attributes)
       end
 
       def delete(id)
-        perform_request("#{endpoint}/#{id}", :delete)
+        perform_request(:delete, "#{endpoint}/#{id}")
       end
 
       def relation(name, type, class_override: nil)
@@ -48,17 +48,8 @@ module Billogram
         end
       end
 
-      def perform_request(url, type, params = {})
-        case type
-        when :post, :put
-          query = { body: params.to_json }
-        when :get
-          query = { query: params }
-        when :delete
-          query = {}
-        end
-
-        response = Billogram.client.send(type, url, query)
+      def perform_request(type, url, params = {})
+        response = Request.new(type, url, params).execute
         build_objects(response)
       end
     end

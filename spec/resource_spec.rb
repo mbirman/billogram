@@ -76,4 +76,24 @@ describe Billogram::Resource do
       expect(subject.relations).to include(Billogram::Relation)
     end
   end
+
+  describe ".perform_request" do
+    let(:query) { described_class::DEFAULT_OPTIONS }
+    let(:request) { Billogram::Request.new(:get, "resource", query) }
+
+    before do
+      allow(request).to receive(:execute).and_return({})
+      allow(Billogram::Request).to receive(:new).and_return(request)
+    end
+
+    it "initializes a request" do
+      expect(Billogram::Request).to receive(:new).with(:get, "resource", query)
+      described_class.perform_request(:get, "resource", query)
+    end
+
+    it "returns objects" do
+      expect(described_class).to receive(:build_objects).with({})
+      described_class.perform_request(:get, "resource", query)
+    end
+  end
 end
