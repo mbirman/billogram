@@ -5,6 +5,8 @@ require 'helper'
 require 'dotenv'
 require 'rspec/its'
 
+Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
+
 Dotenv.load
 
 Billogram.configure do |config|

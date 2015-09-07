@@ -1,6 +1,9 @@
 module Billogram
   class Invoice < Resource
+    include Endpoint
+
     endpoint 'billogram'
+
     attr_accessor :id, :invoice_no, :ocr_number, :invoice_date, :due_date, :due_days, 
                   :invoice_fee, :invoice_fee_vat, :reminder_fee, :interest_rate,
                   :interest_fee, :currency, :delivery_method, :state, :url, :flags,

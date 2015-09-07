@@ -1,5 +1,6 @@
 module Billogram
   class Settings < Resource
+    include Endpoint
 
     attr_accessor :name, :org_no
 
