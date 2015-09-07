@@ -78,7 +78,7 @@ describe Billogram::Resource do
   end
 
   describe ".perform_request" do
-    let(:query) { described_class::DEFAULT_OPTIONS }
+    let(:query) { described_class::DEFAULT_SEARCH_OPTIONS }
     let(:request) { Billogram::Request.new(:get, "resource", query) }
 
     before do

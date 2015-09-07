@@ -2,7 +2,7 @@ require "active_support/core_ext/string/inflections.rb"
 
 module Billogram
   class Resource
-    DEFAULT_OPTIONS = { page: 1, page_size: 50 }
+    DEFAULT_SEARCH_OPTIONS = { page: 1, page_size: 50 }
 
     class << self
       def relations
@@ -15,7 +15,7 @@ module Billogram
       end
 
       def search(options = {})
-        query = DEFAULT_OPTIONS.merge(options)
+        query = DEFAULT_SEARCH_OPTIONS.merge(options)
         perform_request(:get, "#{endpoint}", query)
       end
 
