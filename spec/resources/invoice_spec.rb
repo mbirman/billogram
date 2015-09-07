@@ -28,18 +28,12 @@ describe Billogram::Invoice do
 
   describe "relations" do
     its(:info) { is_expected.to be_a(Billogram::Info) }
+    its(:items) { is_expected.to include(Billogram::Item) }
+    its(:events) { is_expected.to include(Billogram::Event) }
     its(:customer) { is_expected.to be_a(Billogram::Customer) }
     its(:callbacks) { is_expected.to be_a(Billogram::Callbacks) }
     its(:detailed_sums) { is_expected.to be_a(Billogram::DetailedSums) }
     its(:regional_sweden) { is_expected.to be_a(Billogram::RegionalSweden) }
-  end
-
-  describe "items" do
-    pending
-  end
-
-  describe "events" do
-    pending
   end
 
   it { is_expected.to respond_to(:id) }
