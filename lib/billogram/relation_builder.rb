@@ -16,7 +16,7 @@ module Billogram
     private
 
     def extract_attributes(relation)
-      attributes.delete(relation.name.to_s)
+      attributes.delete(relation.name)
     end
 
     def resource_relations
@@ -25,17 +25,9 @@ module Billogram
 
     def build_relation(relation)
       if attrs = extract_attributes(relation)
-        value = send("build_#{relation.type}", relation, attrs)
+        value = relation.relation_class.build_objects(attrs)
         resource.public_send("#{relation.name}=", value)
       end
-    end
-
-    def build_one(relation, attrs)
-      relation.relation_class.new(attrs)
-    end
-
-    def build_many(relation, attrs)
-      attrs.map{|item| relation.relation_class.new(item) }
     end
   end
 end
