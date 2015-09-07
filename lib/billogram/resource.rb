@@ -30,10 +30,23 @@ module Billogram
     end
 
     def to_json(*args)
+      to_hash.to_json(*args)
+    end
+
+    def to_hash
       instance_variables
-        .map{|var| ["#{var}"[1..-1], instance_variable_get(var)]}
-        .to_h
-        .to_json(*args)
+        .each_with_object({}) do |variable, obj|
+          value = instance_variable_get(variable)
+
+          case value
+          when Resource
+            value = value.to_hash
+          when Array
+            value = value.map(&:to_hash)
+          end
+
+          obj[variable[1..-1]] = value
+        end
     end
   end
 end
