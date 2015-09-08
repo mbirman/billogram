@@ -4,6 +4,8 @@ describe Billogram::Invoice do
   it_behaves_like "a resource with endpoint", "billogram"
 
   describe "commands" do
+    subject { described_class.new(fixture("billogram")) }
+
     describe "#send!" do
       it "sends request to /command/send" do
         path = "billogram/#{subject.id}/command/send"
