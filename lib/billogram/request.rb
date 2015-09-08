@@ -20,7 +20,15 @@ module Billogram
     end
 
     def execute
-      Billogram.client.send(type, url, content)
+      response.success? ? response["data"] : raise_from(response)
+    end
+
+    def raise_from(response)
+      raise Billogram::Error.from_response(response)
+    end
+
+    def response
+      @response ||= Billogram.client.send(type, url, content)
     end
   end
 end

@@ -2,16 +2,29 @@ require 'spec_helper'
 
 describe Billogram::Request do
   let(:params) { { attribute: "value"} }
+
   subject { described_class.new(:get, "test", params) }
 
-  its(:type) { is_expected.to eq(:get) }
-  its(:url) { is_expected.to eq("test") }
-  its(:params) { is_expected.to eq(params)}
-
   describe "#execute" do
-    it "fires Billgoram client" do
-      expect(Billogram.client).to receive(:send).with(:get, "test", {query: params})
-      subject.execute
+    before do
+      allow(subject).to receive(:response).and_return(response)
+    end
+
+    describe "successfull" do
+      let(:data) { {name: "Bill" } }
+      let(:response) { OpenStruct.new(success?: true, data: data) }
+
+      it "returns data hash" do
+        expect(subject.execute).to eq(data)
+      end
+    end
+
+    describe "failed" do
+      let(:response) { OpenStruct.new(success?: false, code: 500, data: {}) }
+
+      it "raises Billogram::Error" do
+        expect{subject.execute}.to raise_error(Billogram::Error)
+      end
     end
   end
 

@@ -3,9 +3,11 @@ require 'spec_helper'
 describe Billogram::Client do
   subject { Billogram.client }
 
-  describe ".handle_request" do
-    it "returns attributes hash" do
-      pending
+  [:get, :post, :put, :delete].each do |verb|
+    it "delegates #{verb}" do
+      url = "http://example.com"
+      expect(described_class).to receive(verb).with(url)
+      subject.send(verb, url)
     end
   end
 end
