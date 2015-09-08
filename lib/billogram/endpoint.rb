@@ -10,10 +10,6 @@ module Billogram
         self.class.perform_request(:put, "#{endpoint}/#{id}", attributes)
       end
 
-      def delete
-        self.class.perform_request(:delete, "#{endpoint}/#{id}")
-      end
-
       def endpoint
         self.class.endpoint
       end

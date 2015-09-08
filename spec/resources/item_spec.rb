@@ -23,4 +23,19 @@ describe Billogram::Item do
       its(:bookkeeping) { is_expected.to be_a(Billogram::Bookkeeping) }
     end
   end
+
+
+  describe "#delete" do
+    subject { described_class.new(item_no: 1) }
+
+    before do
+      response = OpenStruct.new(success?: true)
+      allow(Billogram.client).to receive(:delete).and_return(response)
+    end
+
+    it "deletes item" do
+      expect(Billogram.client).to receive(:delete).with("item/1", {})
+      subject.delete
+    end
+  end
 end

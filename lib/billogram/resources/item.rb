@@ -9,5 +9,9 @@ module Billogram
 
     relation :bookkeeping, :one
     relation :regional_sweden, :one
+
+    def delete
+      self.class.perform_request(:delete, "#{endpoint}/#{id}")
+    end
   end
 end

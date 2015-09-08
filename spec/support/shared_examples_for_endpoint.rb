@@ -92,17 +92,4 @@ shared_examples_for "a resource with endpoint" do |endpoint|
       resource.update({})
     end
   end
-
-  describe "#delete" do
-    let(:resource) { described_class.new }
-
-    before do
-      allow(resource).to receive(:id).and_return(1)
-    end
-
-    it "forwards method call to the class" do
-      expect(subject).to receive(:perform_request).with(:delete, "#{endpoint}/#{resource.id}")
-      resource.delete
-    end
-  end
 end
