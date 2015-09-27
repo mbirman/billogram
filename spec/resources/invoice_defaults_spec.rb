@@ -8,7 +8,7 @@ describe Billogram::InvoiceDefaults do
   it { is_expected.to respond_to(:default_reminder_fee) }
   it { is_expected.to respond_to(:default_invoice_fee) }
 
-  describe "relations" do
-    its(:automatic_reminders) { is_expected.to include(Billogram::AutomaticReminder) }
+  it "has relations" do
+    expect(subject.automatic_reminders).to include(Billogram::AutomaticReminder)
   end
 end

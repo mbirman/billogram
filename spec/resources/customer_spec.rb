@@ -17,12 +17,14 @@ describe Billogram::Customer do
     it { is_expected.to respond_to(:updated_at) }
     it { is_expected.to respond_to(:company_type) }
 
-    its(:id) { is_expected.to eq(subject.customer_no) }
+    it "has id" do
+      expect(subject.id).to eq(subject.customer_no)
+    end
 
-    describe "relations" do
-      its(:contact) { is_expected.to be_a(Billogram::Contact) }
-      its(:address) { is_expected.to be_a(Billogram::Address) }
-      its(:delivery_address) { is_expected.to be_a(Billogram::Address) }
+    it "has relations" do
+      expect(subject.contact).to be_a(Billogram::Contact) 
+      expect(subject.address).to be_a(Billogram::Address) 
+      expect(subject.delivery_address).to be_a(Billogram::Address) 
     end
   end
 end

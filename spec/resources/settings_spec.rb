@@ -6,22 +6,17 @@ describe Billogram::Settings do
   describe "initialization" do
     subject { described_class.new(fixture("settings")) }
 
-    its(:endpoint) { is_expected.to eq('settings') }
-
-
     it { is_expected.to respond_to(:name) }
     it { is_expected.to respond_to(:org_no) }
     
 
-    describe "relations" do
-      subject { described_class.new(fixture("settings")) }
-
-      its(:tax) { is_expected.to be_a(Billogram::Tax) }
-      its(:contact) { is_expected.to be_a(Billogram::Contact) }
-      its(:address) { is_expected.to be_a(Billogram::Address) }
-      its(:payment) { is_expected.to be_a(Billogram::Payment) }
-      its(:bookkeeping) { is_expected.to be_a(Billogram::Bookkeeping) }
-      its(:invoices) { is_expected.to be_a(Billogram::InvoiceDefaults) }
+    it "has relations" do
+      expect(subject.tax).to be_a(Billogram::Tax)
+      expect(subject.contact).to be_a(Billogram::Contact)
+      expect(subject.address).to be_a(Billogram::Address)
+      expect(subject.payment).to be_a(Billogram::Payment)
+      expect(subject.bookkeeping).to be_a(Billogram::Bookkeeping)
+      expect(subject.invoices).to be_a(Billogram::InvoiceDefaults)
     end
   end
 end
