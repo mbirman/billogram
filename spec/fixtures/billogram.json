@@ -9,6 +9,9 @@
    "state" : "Unpaid",
    "attachment" : "orderdetails.pdf",
    "automatic_reminders" : true,
+   "automatic_reminders_settings": [
+     { "message" : "a lannister always pays his debts", "delay_days": 5 }
+   ],
    "rounding_value" : -0.25,
    "ocr_number" : "324810046924",
    "events" : [
