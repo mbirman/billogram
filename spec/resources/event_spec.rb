@@ -9,8 +9,8 @@ describe Billogram::Event do
     it { is_expected.to respond_to(:created_at) }
     it { is_expected.to respond_to(:type) }
 
-    describe "relations" do
-      its(:data) { is_expected.to be_a(Billogram::Data) }
+    it "has relations" do
+      expect(subject.data).to be_a(Billogram::Data) 
     end
   end
 end

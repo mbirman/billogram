@@ -1,5 +1,13 @@
 require 'spec_helper'
 
+ERRORS = {
+            "BadRequest" => 400,
+            "Unauthorized" => 401,
+            "Forbidden" => 403,
+            "NotFound" => 404,
+            "InternalServerError" => 500
+          }
+
 describe Billogram::Error do
   let(:response) { fixture("error_response") }
 
@@ -9,43 +17,11 @@ describe Billogram::Error do
     allow(response).to receive(:code).and_return(status)
   end
 
-  describe "400" do
-    let(:status) { 400 }
+  ERRORS.each do |class_name, code|
+    describe "#{code}" do
+      let(:status) { code }
 
-    it "returns BadRequest" do
-      expect(described_class.from_response(response)).to be_a(Billogram::Error::BadRequest)
-    end
-  end
-
-  describe "401" do
-    let(:status) { 401 }
-
-    it "returns Unauthorized" do
-      expect(described_class.from_response(response)).to be_a(Billogram::Error::Unauthorized)
-    end
-  end
-
-  describe "403" do
-    let(:status) { 403 }
-
-    it "returns Forbidden" do
-      expect(described_class.from_response(response)).to be_a(Billogram::Error::Forbidden)
-    end
-  end
-
-  describe "404" do
-    let(:status) { 404 }
-
-    it "returns NotFound" do
-      expect(described_class.from_response(response)).to be_a(Billogram::Error::NotFound)
-    end
-  end
-
-  describe "500" do
-    let(:status) { 500 }
-
-    it "returns InternalServerError" do
-      expect(described_class.from_response(response)).to be_a(Billogram::Error::InternalServerError)
+      it { is_expected.to be_a("Billogram::Error::#{class_name}".constantize) }
     end
   end
 

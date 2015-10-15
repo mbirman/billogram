@@ -3,7 +3,6 @@ require 'billogram'
 require 'webmock/rspec'
 require 'helper'
 require 'dotenv'
-require 'rspec/its'
 
 Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
 

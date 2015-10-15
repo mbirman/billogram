@@ -29,31 +29,34 @@ describe Billogram::Request do
   end
 
   describe "content" do
+    subject { described_class.new(verb, "test", params).content }
+
     describe "GET" do
       let(:params) { { test: 123 } }
-      subject { described_class.new(:get, "test", params) }
+      let(:verb) { :get }
 
-      its(:content) { is_expected.to eq({query: params}) }
+      it { is_expected.to eq({query: params}) }
     end
 
     describe "POST" do
       let(:params) { { test: 123 } }
-      subject { described_class.new(:post, "test", params) }
+      let(:verb) { :post }
 
-      its(:content) { is_expected.to eq({body: params.to_json}) }
+      it { is_expected.to eq({body: params.to_json}) }
     end
 
     describe "PUT" do
       let(:params) { { test: 123 } }
-      subject { described_class.new(:put, "test", params) }
+      let(:verb) { :put }
 
-      its(:content) { is_expected.to eq({body: params.to_json}) }
+      it { is_expected.to eq({body: params.to_json}) }
     end
 
     describe "DELETE" do
-      subject { described_class.new(:delete, "test/1") }
+      let(:params) { {} }
+      let(:verb) { :delete }
 
-      its(:content) { is_expected.to eq({}) }
+      it { is_expected.to eq({}) }
     end
   end
 end
