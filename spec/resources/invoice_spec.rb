@@ -39,6 +39,9 @@ describe Billogram::Invoice do
       its(:callbacks) { is_expected.to be_a(Billogram::Callbacks) }
       its(:detailed_sums) { is_expected.to be_a(Billogram::DetailedSums) }
       its(:regional_sweden) { is_expected.to be_a(Billogram::RegionalSweden) }
+      its(:automatic_reminders_settings) {
+        is_expected.to include(Billogram::AutomaticReminder)
+      }
     end
 
     it { is_expected.to respond_to(:id) }
