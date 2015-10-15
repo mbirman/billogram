@@ -112,5 +112,6 @@
        "regional_sweden" : {
            "rotavdrag_sum" : 0
        }
-   }
+   },
+   "dummy" : "these things don't break"
 }
