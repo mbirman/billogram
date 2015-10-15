@@ -13,6 +13,8 @@ describe Billogram::Report do
     it { is_expected.to respond_to(:created_at) }
     it { is_expected.to respond_to(:content) }
 
-    its(:id) { is_expected.to eq(subject.filename) }
+    it "has id" do
+      expect(subject.id).to eq(subject.filename) 
+    end
   end
 end

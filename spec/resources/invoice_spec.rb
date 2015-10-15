@@ -31,17 +31,15 @@ describe Billogram::Invoice do
   describe "initialization" do
     subject { described_class.new(fixture("billogram")) }
 
-    describe "relations" do
-      its(:info) { is_expected.to be_a(Billogram::Info) }
-      its(:items) { is_expected.to include(Billogram::Item) }
-      its(:events) { is_expected.to include(Billogram::Event) }
-      its(:customer) { is_expected.to be_a(Billogram::Customer) }
-      its(:callbacks) { is_expected.to be_a(Billogram::Callbacks) }
-      its(:detailed_sums) { is_expected.to be_a(Billogram::DetailedSums) }
-      its(:regional_sweden) { is_expected.to be_a(Billogram::RegionalSweden) }
-      its(:automatic_reminders_settings) {
-        is_expected.to include(Billogram::AutomaticReminder)
-      }
+    it "has relations" do
+      expect(subject.info).to be_a(Billogram::Info)
+      expect(subject.items).to include(Billogram::Item)
+      expect(subject.events).to include(Billogram::Event)
+      expect(subject.customer).to be_a(Billogram::Customer)
+      expect(subject.callbacks).to be_a(Billogram::Callbacks)
+      expect(subject.detailed_sums).to be_a(Billogram::DetailedSums)
+      expect(subject.regional_sweden).to be_a(Billogram::RegionalSweden)
+      expect(subject.automatic_reminders_settings).to include(Billogram::AutomaticReminder)
     end
 
     it { is_expected.to respond_to(:id) }

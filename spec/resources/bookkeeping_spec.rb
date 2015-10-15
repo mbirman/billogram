@@ -21,7 +21,7 @@ describe Billogram::Bookkeeping do
   it { is_expected.to respond_to(:rounding_account) }
   it { is_expected.to respond_to(:factoring_receivable_account) }
 
-  describe "relations" do
-    its(:regional_sweden) { is_expected.to be_a(Billogram::RegionalSweden) }
+  it "has relations" do
+    expect(subject.regional_sweden).to be_a(Billogram::RegionalSweden)
   end
 end
