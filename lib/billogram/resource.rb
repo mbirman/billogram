@@ -23,7 +23,11 @@ module Billogram
 
     def initialize(attributes = {})
       Hash(attributes).each do |key, value|
-        public_send("#{key}=", value)
+        if respond_to?("#{key}=")
+          public_send("#{key}=", value)
+        else
+          warn("Billogram: unknown attribute #{key}")
+        end
       end
 
       RelationBuilder.new(self, attributes).call

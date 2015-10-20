@@ -80,4 +80,21 @@ describe Billogram::Resource do
       subject.to_hash
     end
   end
+
+  describe "unknown attribute" do
+    before do
+      @orig_stderr = $stderr
+      $stderr = StringIO.new
+    end
+
+    it "shows warning" do
+      described_class.new({key: 'test'})
+      $stderr.rewind
+      expect($stderr.string.chomp).to eq("Billogram: unknown attribute key")
+    end
+
+    after do
+      $stderr = @orig_stderr
+    end
+  end
 end
