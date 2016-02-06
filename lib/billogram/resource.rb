@@ -26,7 +26,7 @@ module Billogram
         if respond_to?("#{key}=")
           public_send("#{key}=", value)
         else
-          warn("Billogram: unknown attribute #{key}")
+          warn("#{self.class}: unknown attribute #{key}")
         end
       end
 

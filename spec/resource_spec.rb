@@ -90,7 +90,7 @@ describe Billogram::Resource do
     it "shows warning" do
       described_class.new({key: 'test'})
       $stderr.rewind
-      expect($stderr.string.chomp).to eq("Billogram: unknown attribute key")
+      expect($stderr.string.chomp).to eq("Billogram::Resource: unknown attribute key")
     end
 
     after do
