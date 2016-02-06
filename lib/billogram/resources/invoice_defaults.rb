@@ -4,5 +4,6 @@ module Billogram
       :default_invoice_fee
 
     relation :automatic_reminders, :many
+    relation :automatic_collection, :many
   end
 end

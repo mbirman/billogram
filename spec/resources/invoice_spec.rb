@@ -39,6 +39,7 @@ describe Billogram::Invoice do
       expect(subject.callbacks).to be_a(Billogram::Callbacks)
       expect(subject.detailed_sums).to be_a(Billogram::DetailedSums)
       expect(subject.regional_sweden).to be_a(Billogram::RegionalSweden)
+      expect(subject.automatic_collection).to be_a(Billogram::AutomaticCollection)
       expect(subject.automatic_reminders_settings).to include(Billogram::AutomaticReminder)
     end
 
