@@ -8,5 +8,7 @@ module Billogram
       :efaktura_recipient_bank_id, :efaktura_recipient_type,
       :efaktura_recipient_bank_name, :autogiro_betalarnummer, :autogiro_total_sum,
       :efaktura_recipient_identifier, :efaktura_recipient_id_number
+
+      relation :electricity_collection, :one
   end
 end
