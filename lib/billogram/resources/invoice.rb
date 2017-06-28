@@ -9,7 +9,7 @@ module Billogram
                   :interest_fee, :currency, :delivery_method, :state, :url, :flags,
                   :remaining_sum, :total_sum, :rounding_value, :automatic_reminders,
                   :reminder_count, :created_at, :attested_at, :updated_at, :detailed_sums,
-                  :attachment
+                  :attachment, :offers
 
     relation :info, :one
     relation :customer, :one
