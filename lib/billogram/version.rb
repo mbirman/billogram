@@ -1,3 +1,3 @@
 module Billogram
-  VERSION = "0.5.6"
+  VERSION = "0.6.2"
 end
