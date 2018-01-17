@@ -28,7 +28,7 @@ module Billogram
     end
 
     def response
-      @response ||= Billogram.client.send(type, url, content)
+      @response ||= Billogram.client.send(type, "/#{url}", content)
     end
   end
 end
