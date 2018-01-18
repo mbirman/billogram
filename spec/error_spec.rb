@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 ERRORS = {
-            "BadRequest" => 400,
-            "Unauthorized" => 401,
-            "Forbidden" => 403,
-            "NotFound" => 404,
-            "InternalServerError" => 500
-          }
+  "BadRequest"          => 400,
+  "Unauthorized"        => 401,
+  "Forbidden"           => 403,
+  "NotFound"            => 404,
+  "InternalServerError" => 500
+}
 
 describe Billogram::Error do
   let(:response) { fixture("error_response") }

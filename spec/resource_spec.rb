@@ -69,6 +69,7 @@ describe Billogram::Resource do
 
     it "calls #to_hash on a nested resource" do
       expect(resource).to receive(:to_hash)
+
       subject.to_hash
     end
 

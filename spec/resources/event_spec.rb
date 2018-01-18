@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Billogram::Event do
-  it_behaves_like "a resource with endpoint", "billogram_event"
+  it_behaves_like :resource_with_endpoint, "billogram_event"
 
   describe "initialization" do
     subject { described_class.new(fixture("event")) }

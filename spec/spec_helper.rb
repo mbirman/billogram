@@ -1,7 +1,6 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'billogram'
 require 'webmock/rspec'
-require 'helper'
 require 'dotenv'
 
 Dir["./spec/support/**/*.rb"].sort.each { |f| require f}

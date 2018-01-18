@@ -18,7 +18,8 @@ describe Billogram::RelationBuilder do
 
     it "doesn't change relation if corresponding attribute is empty" do
       resource.events = [Billogram::Event.new]
-      expect{subject.call}.to_not change{resource.events}
+
+      expect { subject.call }.to_not change { resource.events }
     end
   end
 end

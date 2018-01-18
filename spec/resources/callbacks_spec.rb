@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe Billogram::Callbacks do
-  subject { described_class.new }
-
   it { is_expected.to respond_to(:callback_id) }
   it { is_expected.to respond_to(:custom) }
   it { is_expected.to respond_to(:signature) }

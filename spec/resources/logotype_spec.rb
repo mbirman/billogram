@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Billogram::Logotype do
-  it_behaves_like "a resource with endpoint", "logotype"
+  it_behaves_like :resource_with_endpoint, "logotype"
 
   describe ".upload" do
     let(:params) { {content: '', file_type: 'image/png'} }

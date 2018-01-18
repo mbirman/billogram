@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Billogram::Invoice do
-  it_behaves_like "a resource with endpoint", "billogram"
+  it_behaves_like :resource_with_endpoint, "billogram"
 
   describe "commands" do
     subject { described_class.new(fixture("billogram")) }

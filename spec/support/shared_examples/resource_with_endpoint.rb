@@ -1,4 +1,4 @@
-shared_examples_for "a resource with endpoint" do |endpoint|
+shared_examples_for :resource_with_endpoint do |endpoint|
   subject { described_class }
 
   describe ".endpoint" do

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Billogram::Customer do
-  it_behaves_like "a resource with endpoint", "customer"
+  it_behaves_like :resource_with_endpoint, "customer"
 
   describe "initialization" do
     subject { described_class.new(fixture("customer")) }

@@ -23,7 +23,7 @@ def fixture_path
 end
 
 def raw_fixture(file)
-  File.new(fixture_path + '/' + "#{file}.json")
+  File.new("#{fixture_path}/#{file}.json")
 end
 
 def fixture(file)

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Billogram::Item do
-  it_behaves_like "a resource with endpoint", "item"
+  it_behaves_like :resource_with_endpoint, "item"
 
   describe "initialization" do
     subject { described_class.new(fixture("item")) }
@@ -26,18 +26,13 @@ describe Billogram::Item do
     end
   end
 
-
   describe "#delete" do
-    subject { described_class.new(item_no: 1) }
-
-    before do
-      response = OpenStruct.new(success?: true)
-      allow(Billogram.client).to receive(:delete).and_return(response)
-    end
-
     it "deletes item" do
-      expect(Billogram.client).to receive(:delete).with("item/1", {})
-      subject.delete
+      allow(Billogram.client).to receive(:delete) { double(success?: true, :[] => []) }
+
+      expect(Billogram.client).to receive(:delete).with("/item/1", {})
+
+      described_class.new(item_no: 1).delete
     end
   end
 end

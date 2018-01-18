@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe Billogram::Data do
-  subject { described_class.new }
-
   it { is_expected.to respond_to(:invoice_no) }
   it { is_expected.to respond_to(:delivery_method) }
   it { is_expected.to respond_to(:letter_id) }
