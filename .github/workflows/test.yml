@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         ruby: [ '2.4.x',  '2.5.x',  '2.6.x',  '2.7.x']
-        bundler: [ '~> 1.15.0', '~> 1.16.0', '~> 1.17.0', '~> 2.0.0' ]
     steps:
     - uses: actions/checkout@master
     - name: Set up Ruby
@@ -23,7 +22,7 @@ jobs:
     - name: Set up Bundler
       run: |
         yes | gem uninstall bundler --all
-        gem install bundler -v "${{ matrix.bundler }}"
+        gem install bundler -v 1.17.3
     - name: Install dependencies
       run: bundle install --jobs 4 --retry 3
     - name: Run tests
