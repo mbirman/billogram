@@ -10,5 +10,6 @@ module Billogram
     relation :address, :one
     relation :contact, :one
     relation :delivery_address, :one, class_override: "Address"
+    relation :payment_settings, :one, class_override: "PaymentSettings"
   end
 end
