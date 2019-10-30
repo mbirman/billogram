@@ -1,4 +1,5 @@
 # Billogram
+https://github.com/mbirman/billogram/workflows/test/badge.svg
 
 Simple ruby wrapper for [Billogram](https://billogram.com) API
 

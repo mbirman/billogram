@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    branches:
+    - "*"
+    tags:
+    - "!*"
+
+jobs:
+  bundler:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: [ '2.4.x',  '2.5.x',  '2.6.x' ]
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - name: Set up Bundler
+      run: gem install bundler -v 1.17.3
+    - name: Install dependencies
+      run: bundle install --jobs 4 --retry 3
+    - name: Run tests
+      run: bundle exec rspec
