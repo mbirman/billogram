@@ -23,11 +23,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec", "~> 3.7"
-  spec.add_development_dependency "webmock", "~> 3.2"
-  spec.add_development_dependency "dotenv"
+  spec.add_development_dependency "rspec", "~> 3.9"
+  spec.add_development_dependency "webmock", "~> 3.7"
+  spec.add_development_dependency "dotenv", "~> 2.7"
   spec.add_development_dependency "byebug"
 
-  spec.add_dependency "httparty", "~> 0.15"
-  spec.add_dependency "activesupport"
+  spec.add_dependency "httparty", "~> 0.17.1"
+  spec.add_dependency "activesupport", "~> 5.2"
 end
