@@ -10,7 +10,7 @@ module Billogram
                   :remaining_sum, :total_sum, :rounding_value, :automatic_reminders,
                   :reminder_count, :created_at, :attested_at, :updated_at, :detailed_sums,
                   :attachment, :offers, :sales_accepted, :show_item_gross_prices, :respite_date,
-                  :recipient_url, :creditor_unique_value
+                  :recipient_url, :creditor_unique_value, :pdf
 
     relation :info, :one
     relation :customer, :one

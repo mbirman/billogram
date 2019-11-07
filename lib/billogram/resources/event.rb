@@ -4,7 +4,7 @@ module Billogram
 
     endpoint 'billogram_event'
 
-    attr_accessor :created_at, :type
+    attr_accessor :created_at, :type, :event_uuid
 
     relation :data, :one, class_override: "Data"
   end
