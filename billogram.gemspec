@@ -6,8 +6,7 @@ require 'billogram/version'
 Gem::Specification.new do |spec|
   spec.name          = "billogram"
   spec.version       = Billogram::VERSION
-  spec.authors       = ["Mark Birman"]
-  spec.email         = ["birmanmark@gmail.com"]
+  spec.authors       = ["mbirman"]
   spec.description   = %q{Simple ruby wrapper for Billogram API}
 
   spec.summary       = "Ruby library providing access to Billogram API"
