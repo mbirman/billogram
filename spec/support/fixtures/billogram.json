@@ -115,6 +115,7 @@
   },
   "automatic_collection" : {
     "delay_days" : 6,
-    "amount" : 60
+    "amount" : 60,
+    "use_default_settings": false
   }
 }
