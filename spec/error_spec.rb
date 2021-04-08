@@ -27,6 +27,7 @@ describe Billogram::Error do
 
   describe "everything else" do
     let(:status) { 502 }
+    let(:response) { { "data" => nil } }
 
     it "returns Error" do
       expect(described_class.from_response(response)).to be_a(Billogram::Error)

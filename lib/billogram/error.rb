@@ -9,7 +9,7 @@ module Billogram
 
     class << self
       def from_response(response)
-        message = response["data"]["message"]
+        message = response["data"]&.[]("message")
         error_class(response).new(message)
       end
 
