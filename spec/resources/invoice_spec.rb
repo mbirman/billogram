@@ -11,7 +11,7 @@ describe Billogram::Invoice do
         path = "billogram/#{subject.id}/command/send"
         options = { method: 'Email' }
         expect(described_class).to receive(:perform_request).with(:post, path, options)
-        subject.send!(options)
+        subject.send!(**options)
       end
     end
 
