@@ -4,7 +4,7 @@ module Billogram
 
     endpoint 'billogram'
 
-    attr_accessor :id, :invoice_no, :ocr_number, :invoice_date, :due_date, :due_days, 
+    attr_accessor :id, :invoice_no, :ocr_number, :invoice_date, :due_date, :due_days,
                   :invoice_fee, :invoice_fee_vat, :reminder_fee, :interest_rate,
                   :interest_fee, :currency, :delivery_method, :state, :url, :flags,
                   :remaining_sum, :total_sum, :rounding_value, :automatic_reminders,
