@@ -1,12 +1,14 @@
 {
-    "item_no": "CLN",
-    "title": "Apartment cleaning",
-    "description": "Vacuum cleaning floor, dusting shelves and taking out trash",
-    "price": 130,
+    "item_no": "3004202",
+    "title": "Wooden pole (⌀ 60cm)",
+    "description": "Untreated pine wood, originated in northern Sweden",
+    "price": 43.6,
     "vat": 25,
-    "unit": "hour",
+    "unit": "meter",
     "bookkeeping": {
-        "income_account": "302",
-        "vat_account": "303"
-    }
+        "income_account": 1,
+        "vat_account": null
+    },
+    "created_at": "2013-02-06 14:57:03",
+    "updated_at": "2013-08-05 12:16:57"
 }

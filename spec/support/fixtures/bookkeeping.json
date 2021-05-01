@@ -17,5 +17,12 @@
     "vat_account_for_vat_12": "2620",
     "vat_account_for_vat_25": "2610",
     "vat_account_for_vat_6": "2630",
-    "objects" : []
+    "objects" : [
+        {
+            "dimension_id": "7",
+            "dimension_name": "Anställd / anställningsnummer",
+            "object_id": "208",
+            "object_name": ""
+        }
+    ]
 }

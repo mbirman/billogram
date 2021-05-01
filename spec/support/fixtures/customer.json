@@ -5,18 +5,25 @@
     "org_no": "",
     "contact": {
         "name": "Peter Jonsson",
-        "email": "peter.jonsson@example.com"
+        "email": "peter.jonsson@example.com",
+        "phone": ""
     },
     "address": {
         "street_address": "Lavendelväg 27",
         "zipcode": "12345",
         "city": "Stadby",
-        "country": "SE"
+        "country": "SE",
+        "use_careof_as_attention": false,
+        "careof": ""
     },
     "delivery_address": {
         "street_address": "Lavendelväg 27",
         "zipcode": "12345",
         "city": "Stadby",
-        "country": "SE"
+        "country": "SE",
+        "careof": ""
+    },
+    "payment_settings": {
+        "recurring_payment_type": null
     }
 }
