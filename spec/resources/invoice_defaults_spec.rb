@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::InvoiceDefaults do
-  subject { described_class.new(fixture('settings')['invoices']) }
+  subject(:invoice_defaults) { described_class.new(fixture('settings')['invoices']) }
 
   it { is_expected.to respond_to(:default_message) }
   it { is_expected.to respond_to(:default_interest_rate) }
@@ -11,6 +11,6 @@ describe Billogram::InvoiceDefaults do
   it { is_expected.to respond_to(:default_invoice_fee) }
 
   it 'has relations' do
-    expect(subject.automatic_reminders).to include(Billogram::AutomaticReminder)
+    expect(invoice_defaults.automatic_reminders).to include(Billogram::AutomaticReminder)
   end
 end

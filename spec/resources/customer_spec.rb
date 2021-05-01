@@ -6,7 +6,7 @@ describe Billogram::Customer do
   it_behaves_like :resource_with_endpoint, 'customer'
 
   describe 'initialization' do
-    subject { described_class.new(fixture('customer')) }
+    subject(:customer) { described_class.new(fixture('customer')) }
 
     it { is_expected.to respond_to(:customer_no) }
     it { is_expected.to respond_to(:name) }
@@ -20,13 +20,13 @@ describe Billogram::Customer do
     it { is_expected.to respond_to(:company_type) }
 
     it 'has id' do
-      expect(subject.id).to eq(subject.customer_no)
+      expect(customer.id).to eq(customer.customer_no)
     end
 
     it 'has relations' do
-      expect(subject.contact).to be_a(Billogram::Contact) 
-      expect(subject.address).to be_a(Billogram::Address) 
-      expect(subject.delivery_address).to be_a(Billogram::Address) 
+      expect(customer.contact).to be_a(Billogram::Contact)
+      expect(customer.address).to be_a(Billogram::Address)
+      expect(customer.delivery_address).to be_a(Billogram::Address)
     end
   end
 end

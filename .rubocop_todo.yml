@@ -259,23 +259,6 @@ RSpec/MessageSpies:
 RSpec/MultipleExpectations:
   Max: 9
 
-# Offense count: 50
-# Configuration parameters: IgnoreSharedExamples.
-RSpec/NamedSubject:
-  Exclude:
-    - 'spec/client_spec.rb'
-    - 'spec/relation_builder_spec.rb'
-    - 'spec/request_spec.rb'
-    - 'spec/resource_spec.rb'
-    - 'spec/resources/bookkeeping_spec.rb'
-    - 'spec/resources/customer_spec.rb'
-    - 'spec/resources/event_spec.rb'
-    - 'spec/resources/invoice_defaults_spec.rb'
-    - 'spec/resources/invoice_spec.rb'
-    - 'spec/resources/item_spec.rb'
-    - 'spec/resources/report_spec.rb'
-    - 'spec/resources/settings_spec.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

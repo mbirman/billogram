@@ -5,11 +5,11 @@ require 'spec_helper'
 describe Billogram::Request do
   let(:params) { { attribute: 'value'} }
 
-  subject { described_class.new(:get, 'test', params) }
+  subject(:request) { described_class.new(:get, 'test', params) }
 
   describe '#execute' do
     before do
-      allow(subject).to receive(:response).and_return(response)
+      allow(request).to receive(:response).and_return(response)
     end
 
     describe 'successfull' do
@@ -17,7 +17,7 @@ describe Billogram::Request do
       let(:response) { OpenStruct.new(success?: true, data: data) }
 
       it 'returns data hash' do
-        expect(subject.execute).to eq(data)
+        expect(request.execute).to eq(data)
       end
     end
 
@@ -25,13 +25,13 @@ describe Billogram::Request do
       let(:response) { OpenStruct.new(success?: false, code: 500, data: {}) }
 
       it 'raises Billogram::Error' do
-        expect{subject.execute}.to raise_error(Billogram::Error)
+        expect{request.execute}.to raise_error(Billogram::Error)
       end
     end
   end
 
   describe 'content' do
-    subject { described_class.new(verb, 'test', params).content }
+    subject(:content) { described_class.new(verb, 'test', params).content }
 
     describe 'GET' do
       let(:params) { { test: 123 } }

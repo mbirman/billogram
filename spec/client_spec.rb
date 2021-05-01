@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::Client do
-  subject { Billogram.client }
+  subject(:client) { Billogram.client }
 
   let(:url) { 'http://example.com' }
 
@@ -11,7 +11,7 @@ describe Billogram::Client do
     it "delegates #{verb} to the class" do
       expect(described_class).to receive(verb).with(url)
 
-      subject.send(verb, url)
+      client.send(verb, url)
     end
   end
 end

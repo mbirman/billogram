@@ -1,28 +1,26 @@
 # frozen_string_literal: true
 
 shared_examples_for :resource_with_endpoint do |endpoint|
-  subject { described_class }
-
   describe '.endpoint' do
     after do
-      subject.endpoint(endpoint)
+      described_class.endpoint(endpoint)
     end
 
     describe 'with parameter' do
       it 'sets endpoint' do
-        expect{subject.endpoint('test-value')}.to change{subject.endpoint}.from(endpoint).to('test-value')
+        expect{described_class.endpoint('test-value')}.to change{described_class.endpoint}.from(endpoint).to('test-value')
       end
 
       it "doesn't change endpont to nil" do
-        subject.endpoint('test-value')
-        expect{subject.endpoint(nil)}.to_not change{subject.endpoint}
+        described_class.endpoint('test-value')
+        expect{described_class.endpoint(nil)}.to_not change{described_class.endpoint}
       end
     end
 
     describe 'without parameter' do
       it 'returns previous value' do
-        subject.endpoint('test_endpoint')
-        expect(subject.endpoint).to eq('test_endpoint')
+        described_class.endpoint('test_endpoint')
+        expect(described_class.endpoint).to eq('test_endpoint')
       end
     end
   end
@@ -70,15 +68,15 @@ shared_examples_for :resource_with_endpoint do |endpoint|
   describe '.create' do
     it 'calls #perform_request' do
       attrs = { field: 1, another: 'value' }
-      expect(subject).to receive(:perform_request).with(:post, endpoint, attrs)
-      subject.create(attrs)
+      expect(described_class).to receive(:perform_request).with(:post, endpoint, attrs)
+      described_class.create(attrs)
     end
   end
 
   describe '.fetch' do
     it 'calls #perform_request' do
-      expect(subject).to receive(:perform_request).with(:get, "#{endpoint}/1")
-      subject.fetch(1)
+      expect(described_class).to receive(:perform_request).with(:get, "#{endpoint}/1")
+      described_class.fetch(1)
     end
   end
 
@@ -90,7 +88,7 @@ shared_examples_for :resource_with_endpoint do |endpoint|
     end
 
     it 'forwards method call to the class' do
-      expect(subject).to receive(:perform_request).with(:put, "#{endpoint}/#{resource.id}", {})
+      expect(described_class).to receive(:perform_request).with(:put, "#{endpoint}/#{resource.id}", {})
       resource.update({})
     end
   end

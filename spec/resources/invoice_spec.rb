@@ -6,14 +6,14 @@ describe Billogram::Invoice do
   it_behaves_like :resource_with_endpoint, 'billogram'
 
   describe 'commands' do
-    subject { described_class.new(fixture('billogram')) }
+    subject(:invoice) { described_class.new(fixture('billogram')) }
 
     describe '#send!' do
       it 'sends request to /command/send' do
-        path = "billogram/#{subject.id}/command/send"
+        path = "billogram/#{invoice.id}/command/send"
         options = { method: 'Email' }
         expect(described_class).to receive(:perform_request).with(:post, path, options)
-        subject.send!(**options)
+        invoice.send!(**options)
       end
     end
 
@@ -21,28 +21,28 @@ describe Billogram::Invoice do
       describe "##{command}" do
         it "sends request to /command/#{command}" do
           options = {}
-          path = "#{described_class.endpoint}/#{subject.id}/command/#{command}"
+          path = "#{described_class.endpoint}/#{invoice.id}/command/#{command}"
           expect(described_class).to receive(:perform_request).with(:post, path, options)
 
-          subject.send(command, options)
+          invoice.send(command, options)
         end
       end
     end
   end
 
   describe 'initialization' do
-    subject { described_class.new(fixture('billogram')) }
+    subject(:invoice) { described_class.new(fixture('billogram')) }
 
     it 'has relations' do
-      expect(subject.info).to be_a(Billogram::Info)
-      expect(subject.items).to include(Billogram::Item)
-      expect(subject.events).to include(Billogram::Event)
-      expect(subject.customer).to be_a(Billogram::Customer)
-      expect(subject.callbacks).to be_a(Billogram::Callbacks)
-      expect(subject.detailed_sums).to be_a(Billogram::DetailedSums)
-      expect(subject.regional_sweden).to be_a(Billogram::RegionalSweden)
-      expect(subject.automatic_collection).to be_a(Billogram::AutomaticCollection)
-      expect(subject.automatic_reminders_settings).to include(Billogram::AutomaticReminder)
+      expect(invoice.info).to be_a(Billogram::Info)
+      expect(invoice.items).to include(Billogram::Item)
+      expect(invoice.events).to include(Billogram::Event)
+      expect(invoice.customer).to be_a(Billogram::Customer)
+      expect(invoice.callbacks).to be_a(Billogram::Callbacks)
+      expect(invoice.detailed_sums).to be_a(Billogram::DetailedSums)
+      expect(invoice.regional_sweden).to be_a(Billogram::RegionalSweden)
+      expect(invoice.automatic_collection).to be_a(Billogram::AutomaticCollection)
+      expect(invoice.automatic_reminders_settings).to include(Billogram::AutomaticReminder)
     end
 
     it { is_expected.to respond_to(:id) }

@@ -6,7 +6,7 @@ describe Billogram::Item do
   it_behaves_like :resource_with_endpoint, 'item'
 
   describe 'initialization' do
-    subject { described_class.new(fixture('item')) }
+    subject(:item) { described_class.new(fixture('item')) }
 
     it { is_expected.to respond_to(:item_no) }
     it { is_expected.to respond_to(:title) }
@@ -20,11 +20,11 @@ describe Billogram::Item do
     it { is_expected.to respond_to(:updated_at) }
 
     it 'has id' do
-      expect(subject.id).to eq(subject.item_no) 
+      expect(item.id).to eq(item.item_no)
     end
 
     it 'has relations' do
-      expect(subject.bookkeeping).to be_a(Billogram::Bookkeeping)
+      expect(item.bookkeeping).to be_a(Billogram::Bookkeeping)
     end
   end
 

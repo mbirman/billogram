@@ -6,7 +6,7 @@ describe Billogram::Report do
   it_behaves_like :resource_with_endpoint, 'report'
 
   describe 'initialization' do
-    subject { described_class.new } 
+    subject(:report) { described_class.new }
 
     it { is_expected.to respond_to(:filename) }
     it { is_expected.to respond_to(:type) }
@@ -16,7 +16,7 @@ describe Billogram::Report do
     it { is_expected.to respond_to(:content) }
 
     it 'has id' do
-      expect(subject.id).to eq(subject.filename) 
+      expect(report.id).to eq(report.filename)
     end
   end
 end
