@@ -3,10 +3,9 @@
 require 'spec_helper'
 
 describe Billogram::Report do
-  it_behaves_like 'resource with endpoint', 'report'
+  subject(:report) { described_class.new }
 
-  describe 'initialization' do
-    subject(:report) { described_class.new }
+  it_behaves_like 'resource with endpoint', 'report'
 
     it { is_expected.to respond_to(:filename) }
     it { is_expected.to respond_to(:type) }
@@ -15,8 +14,5 @@ describe Billogram::Report do
     it { is_expected.to respond_to(:created_at) }
     it { is_expected.to respond_to(:content) }
 
-    it 'has id' do
-      expect(report.id).to eq(report.filename)
-    end
-  end
+  it { is_expected.to alias_id(:filename) }
 end

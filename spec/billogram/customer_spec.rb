@@ -3,10 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::Customer do
-  it_behaves_like 'resource with endpoint', 'customer'
-
-  describe 'initialization' do
-    subject(:customer) { described_class.new(fixture('customer')) }
+  subject { described_class.new(fixture('customer')) }
 
     it { is_expected.to respond_to(:customer_no) }
     it { is_expected.to respond_to(:name) }
@@ -18,10 +15,8 @@ describe Billogram::Customer do
     it { is_expected.to respond_to(:created_at) }
     it { is_expected.to respond_to(:updated_at) }
     it { is_expected.to respond_to(:company_type) }
+  it_behaves_like 'resource with endpoint', 'customer'
 
-    it 'has id' do
-      expect(customer.id).to eq(customer.customer_no)
-    end
 
     it 'has relations' do
       expect(customer.contact).to be_a(Billogram::Contact)
@@ -29,4 +24,5 @@ describe Billogram::Customer do
       expect(customer.delivery_address).to be_a(Billogram::Address)
     end
   end
+  it { is_expected.to alias_id(:customer_no) }
 end

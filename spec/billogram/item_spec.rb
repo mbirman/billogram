@@ -3,10 +3,9 @@
 require 'spec_helper'
 
 describe Billogram::Item do
-  it_behaves_like 'resource with endpoint', 'item'
+  subject { described_class.new(fixture('item')) }
 
-  describe 'initialization' do
-    subject(:item) { described_class.new(fixture('item')) }
+  it_behaves_like 'resource with endpoint', 'item'
 
     it { is_expected.to respond_to(:item_no) }
     it { is_expected.to respond_to(:title) }
@@ -19,14 +18,12 @@ describe Billogram::Item do
     it { is_expected.to respond_to(:created_at) }
     it { is_expected.to respond_to(:updated_at) }
 
-    it 'has id' do
-      expect(item.id).to eq(item.item_no)
-    end
 
     it 'has relations' do
       expect(item.bookkeeping).to be_a(Billogram::Bookkeeping)
     end
   end
+  it { is_expected.to alias_id(:item_no) }
 
   describe '#delete' do
     it 'deletes item' do
