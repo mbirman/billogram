@@ -1,0 +1,4 @@
+versions:
+  - rubocop: '1.13'
+  - rubocop-rspec: '2.3'
+  - rubocop-performance: '1.11'
