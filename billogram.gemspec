@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 1.13'
   spec.add_development_dependency 'rubocop-performance', '~> 1.11'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.3'
+  spec.add_development_dependency 'simplecov', '~> 0.21'
   spec.add_development_dependency 'webmock', '~> 3.7'
 
   spec.add_dependency 'activesupport', '>= 5.2', '< 7'
