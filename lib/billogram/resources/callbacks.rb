@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class Callbacks < Resource
     attr_accessor :callback_id, :custom, :signature, :sandbox, :url, :sign_key

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class InvoiceDefaults < Resource
     attr_accessor :default_message, :default_interest_rate, :default_reminder_fee,

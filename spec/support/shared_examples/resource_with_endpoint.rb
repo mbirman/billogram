@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for :resource_with_endpoint do |endpoint|
   subject { described_class }
 

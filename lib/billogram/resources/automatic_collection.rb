@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class AutomaticCollection < Resource
     attr_accessor :delay_days, :amount, :use_default_settings

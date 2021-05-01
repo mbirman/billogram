@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class ElectricityCollection < Resource
     attr_accessor :nyttighet, :kommunkod, :slutfaktura, :kravmall,

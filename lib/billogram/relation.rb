@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class Relation
     attr_reader :name, :type, :class_override

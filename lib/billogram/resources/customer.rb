@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class Customer < Resource
     include Endpoint

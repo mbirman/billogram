@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class Info < Resource
     attr_accessor :order_no, :order_date, :our_reference, :your_reference,

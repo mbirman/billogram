@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class RelationBuilder
     attr_reader :resource, :attributes

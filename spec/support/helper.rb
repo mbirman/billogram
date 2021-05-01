@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def stub_post(url)
   stub_request(:post, url_regexp(url))
 end

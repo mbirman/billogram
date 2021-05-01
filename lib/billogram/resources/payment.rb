@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class Payment < Resource
     attr_accessor :bankgiro, :plusgiro

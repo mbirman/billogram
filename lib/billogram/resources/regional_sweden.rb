@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class RegionalSweden < Resource
     attr_accessor :autogiro_betalarnummer, :autogiro_full_status, :autogiro_payment_date,

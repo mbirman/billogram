@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'httparty'
 require 'billogram/client'
 require 'billogram/endpoint'

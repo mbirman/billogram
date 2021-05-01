@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class Data < Resource
     attr_accessor :invoice_no, :delivery_method, :letter_id, :amount, :payer_name,

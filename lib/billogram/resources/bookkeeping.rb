@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class Bookkeeping < Resource
     attr_accessor :income_account, :vat_account, :income_account_for_vat_25,

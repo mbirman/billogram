@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class Report < Resource
     include Endpoint

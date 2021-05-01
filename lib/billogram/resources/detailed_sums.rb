@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Billogram
   class DetailedSums < Resource
     attr_accessor :credited_sum, :net_sum, :gross_sum, :invoice_fee_vat, :paid_sum,
