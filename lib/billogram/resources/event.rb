@@ -6,6 +6,6 @@ module Billogram
 
     attr_accessor :created_at, :type, :event_uuid
 
-    relation :data, :one, class_override: "Data"
+    relation :data, :one, class_override: 'Data'
   end
 end

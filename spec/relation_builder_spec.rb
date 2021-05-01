@@ -6,7 +6,7 @@ describe Billogram::RelationBuilder do
   
   subject { described_class.new(resource, attributes) }
 
-  describe "#call" do
+  describe '#call' do
     it "sets 'one' relation" do
       expect{subject.call}.to change{resource.customer}.from(nil).to(Billogram::Customer)
     end

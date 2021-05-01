@@ -8,7 +8,7 @@ module Billogram
     relation :contact,      :one
     relation :address,      :one
     relation :payment,      :one
-    relation :invoices,     :one, class_override: "InvoiceDefaults"
+    relation :invoices,     :one, class_override: 'InvoiceDefaults'
     relation :bookkeeping,  :one
   end
 end

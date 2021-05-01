@@ -20,7 +20,7 @@ module Billogram
     end
 
     def execute
-      response.success? ? response["data"] : raise_from(response)
+      response.success? ? response['data'] : raise_from(response)
     end
 
     def raise_from(response)

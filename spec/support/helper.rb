@@ -19,7 +19,7 @@ def url_regexp(url)
 end
 
 def fixture_path
-  File.expand_path("../fixtures", __FILE__)
+  File.expand_path('../fixtures', __FILE__)
 end
 
 def raw_fixture(file)

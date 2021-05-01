@@ -16,12 +16,12 @@ module Billogram
     relation :customer, :one
     relation :regional_sweden, :one
     relation :automatic_collection, :one
-    relation :callbacks, :one, class_override: "Callbacks"
-    relation :detailed_sums, :one, class_override: "DetailedSums"
+    relation :callbacks, :one, class_override: 'Callbacks'
+    relation :detailed_sums, :one, class_override: 'DetailedSums'
 
     relation :items, :many
     relation :events, :many
-    relation :automatic_reminders_settings, :many, class_override: "AutomaticReminder"
+    relation :automatic_reminders_settings, :many, class_override: 'AutomaticReminder'
 
     COMMANDS = [ :sell, :remind, :collect, :writeoff, :resend, :remind, :payment, :credit, :message, :attach ]
 

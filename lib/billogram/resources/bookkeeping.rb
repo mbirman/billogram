@@ -8,6 +8,6 @@ module Billogram
       :reminder_fee_account, :rounding_account, :factoring_receivable_account
 
     relation :regional_sweden, :one
-    relation :objects, :many, class_override: "BookkeepingObject"
+    relation :objects, :many, class_override: 'BookkeepingObject'
   end
 end

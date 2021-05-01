@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 ERRORS = {
-  "BadRequest"          => 400,
-  "Unauthorized"        => 401,
-  "Forbidden"           => 403,
-  "NotFound"            => 404,
-  "InternalServerError" => 500
+  'BadRequest'          => 400,
+  'Unauthorized'        => 401,
+  'Forbidden'           => 403,
+  'NotFound'            => 404,
+  'InternalServerError' => 500
 }
 
 describe Billogram::Error do
-  let(:response) { fixture("error_response") }
+  let(:response) { fixture('error_response') }
 
   subject { described_class.from_response(response) }
 
@@ -25,10 +25,10 @@ describe Billogram::Error do
     end
   end
 
-  describe "everything else" do
+  describe 'everything else' do
     let(:status) { 502 }
 
-    it "returns Error" do
+    it 'returns Error' do
       expect(described_class.from_response(response)).to be_a(Billogram::Error)
     end
   end

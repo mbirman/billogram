@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Billogram::Invoice do
-  it_behaves_like :resource_with_endpoint, "billogram"
+  it_behaves_like :resource_with_endpoint, 'billogram'
 
-  describe "commands" do
-    subject { described_class.new(fixture("billogram")) }
+  describe 'commands' do
+    subject { described_class.new(fixture('billogram')) }
 
-    describe "#send!" do
-      it "sends request to /command/send" do
+    describe '#send!' do
+      it 'sends request to /command/send' do
         path = "billogram/#{subject.id}/command/send"
         options = { method: 'Email' }
         expect(described_class).to receive(:perform_request).with(:post, path, options)
@@ -28,10 +28,10 @@ describe Billogram::Invoice do
     end
   end
 
-  describe "initialization" do
-    subject { described_class.new(fixture("billogram")) }
+  describe 'initialization' do
+    subject { described_class.new(fixture('billogram')) }
 
-    it "has relations" do
+    it 'has relations' do
       expect(subject.info).to be_a(Billogram::Info)
       expect(subject.items).to include(Billogram::Item)
       expect(subject.events).to include(Billogram::Event)

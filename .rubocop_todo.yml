@@ -408,13 +408,6 @@ Style/RedundantPercentQ:
   Exclude:
     - 'billogram.gemspec'
 
-# Offense count: 195
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Enabled: false
-
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: MinSize.
