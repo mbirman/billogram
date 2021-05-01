@@ -26,4 +26,5 @@ describe Billogram::Data do
   it { is_expected.to respond_to(:total_sum) }
   it { is_expected.to respond_to(:remaining_sum) }
   it { is_expected.to respond_to(:scanning_central) }
+  it { is_expected.to respond_to(:payment_flags) }
 end

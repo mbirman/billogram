@@ -3,16 +3,12 @@
 require 'spec_helper'
 
 describe Billogram::Event do
+  subject { described_class.new(fixture('event')) }
+
   it_behaves_like 'resource with endpoint', 'billogram_event'
 
-  describe 'initialization' do
-    subject(:event) { described_class.new(fixture('event')) }
+  it { is_expected.to respond_to(:created_at) }
+  it { is_expected.to respond_to(:type) }
 
-    it { is_expected.to respond_to(:created_at) }
-    it { is_expected.to respond_to(:type) }
-
-    it 'has relations' do
-      expect(event.data).to be_a(Billogram::Data)
-    end
-  end
+  it { is_expected.to have_relation(:data, Billogram::Data) }
 end

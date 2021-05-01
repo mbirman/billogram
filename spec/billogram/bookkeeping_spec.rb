@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::Bookkeeping do
-  subject(:bookkeeping) { described_class.new(fixture('bookkeeping')) }
+  subject { described_class.new(fixture('bookkeeping')) }
 
   it { is_expected.to respond_to(:income_account_for_vat_25) }
   it { is_expected.to respond_to(:income_account_for_vat_12) }
@@ -23,7 +23,6 @@ describe Billogram::Bookkeeping do
   it { is_expected.to respond_to(:rounding_account) }
   it { is_expected.to respond_to(:factoring_receivable_account) }
 
-  it 'has relations' do
-    expect(bookkeeping.regional_sweden).to be_a(Billogram::RegionalSweden)
-  end
+  it { is_expected.to have_relation(:regional_sweden, Billogram::RegionalSweden) }
+  it { is_expected.to have_relation(:objects, Billogram::BookkeepingObject) }
 end

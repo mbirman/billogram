@@ -6,13 +6,14 @@ module Billogram
 
     endpoint 'billogram'
 
-    attr_accessor :id, :invoice_no, :ocr_number, :invoice_date, :due_date, :due_days,
-                  :invoice_fee, :invoice_fee_vat, :reminder_fee, :interest_rate,
-                  :interest_fee, :currency, :delivery_method, :state, :url, :flags,
-                  :remaining_sum, :total_sum, :rounding_value, :automatic_reminders,
-                  :reminder_count, :created_at, :attested_at, :updated_at, :detailed_sums,
-                  :attachment, :offers, :sales_accepted, :show_item_gross_prices, :respite_date,
-                  :recipient_url, :creditor_unique_value, :pdf
+    attr_accessor :attachment, :attested_at, :automatic_reminders, :created_at,
+                  :creditor_unique_value, :currency, :delivery_method, :detailed_sums,
+                  :due_date, :due_days, :flags, :id, :interest_fee, :interest_rate,
+                  :invoice_date, :invoice_fee, :invoice_fee_vat, :invoice_no,
+                  :ocr_number, :offers, :pdf, :recipient_url, :remaining_sum,
+                  :reminder_count, :reminder_fee, :respite_date, :rounding_value,
+                  :sales_accepted, :show_item_gross_prices, :state, :total_sum,
+                  :updated_at, :url
 
     relation :info, :one
     relation :customer, :one
@@ -26,7 +27,8 @@ module Billogram
     relation :automatic_reminders_settings, :many, class_override: 'AutomaticReminder'
 
     COMMANDS = [
-      :sell, :remind, :collect, :writeoff, :resend, :remind, :payment, :credit, :message, :attach
+      :sell, :remind, :collect, :writeoff, :resend,
+      :remind, :payment, :credit, :message, :attach
     ].freeze
 
     COMMANDS.each do |command|

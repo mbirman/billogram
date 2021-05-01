@@ -2,6 +2,6 @@
 
 module Billogram
   class Contact < Resource
-    attr_accessor :name, :email, :phone
+    attr_accessor :email, :name, :phone, :www
   end
 end
