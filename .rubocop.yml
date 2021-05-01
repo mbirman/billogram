@@ -12,5 +12,14 @@ AllCops:
 Layout/LineLength:
   Max: 120
 
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
 Naming/VariableNumber:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/Documentation:
   Enabled: false

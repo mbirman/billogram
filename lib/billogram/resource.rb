@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/string/inflections.rb'
+require 'active_support/core_ext/string/inflections'
 
 module Billogram
   class Resource

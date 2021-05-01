@@ -16,12 +16,12 @@ module Billogram
 
       def error_class(response)
         case response.code.to_i
-        when 400  then BadRequest
-        when 401  then Unauthorized
-        when 403  then Forbidden
-        when 404  then NotFound
-        when 500  then InternalServerError
-        else           Billogram::Error
+        when 400 then BadRequest
+        when 401 then Unauthorized
+        when 403 then Forbidden
+        when 404 then NotFound
+        when 500 then InternalServerError
+        else Billogram::Error
         end
       end
     end

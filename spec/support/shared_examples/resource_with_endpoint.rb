@@ -9,12 +9,12 @@ shared_examples_for 'resource with endpoint' do |endpoint|
     describe 'with parameter' do
       it 'sets endpoint' do
         expect { described_class.endpoint('test-value') }
-          .to change { described_class.endpoint }.from(endpoint).to('test-value')
+          .to change(described_class, :endpoint).from(endpoint).to('test-value')
       end
 
       it "doesn't change endpont to nil" do
         described_class.endpoint('test-value')
-        expect { described_class.endpoint(nil) }.to_not change { described_class.endpoint }
+        expect { described_class.endpoint(nil) }.not_to change(described_class, :endpoint)
       end
     end
 

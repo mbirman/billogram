@@ -6,6 +6,6 @@ module Billogram
 
     attr_accessor :filename, :type, :file_type, :info, :created_at, :content
 
-    alias_method :id, :filename
+    alias id filename
   end
 end

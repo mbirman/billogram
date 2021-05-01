@@ -31,7 +31,7 @@ module Billogram
 
       def search(options = {})
         query = default_search_options.merge(options)
-        perform_request(:get, "#{endpoint}", query)
+        perform_request(:get, endpoint.to_s, query)
       end
 
       def fetch(id = nil)
@@ -39,7 +39,7 @@ module Billogram
       end
 
       def create(attributes)
-        perform_request(:post, "#{endpoint}", attributes)
+        perform_request(:post, endpoint.to_s, attributes)
       end
 
       def perform_request(type, url, params = {})

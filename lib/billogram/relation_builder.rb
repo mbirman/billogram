@@ -22,10 +22,12 @@ module Billogram
     end
 
     def build_relation(relation)
-      if attrs = attributes.delete(relation.name)
-        value = relation.relation_class.build_objects(attrs)
-        resource.public_send("#{relation.name}=", value)
-      end
+      attrs = attributes.delete(relation.name)
+
+      return unless attrs
+
+      value = relation.relation_class.build_objects(attrs)
+      resource.public_send("#{relation.name}=", value)
     end
   end
 end

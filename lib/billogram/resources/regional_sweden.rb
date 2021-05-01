@@ -11,7 +11,7 @@ module Billogram
                   :rotavdrag_personal_number, :rotavdrag_sum, :rotavdrag_housing_association_org_no,
                   :rotavdrag_apartment_designation, :rotavdrag_description_of_property
 
-      relation :edi, :one
-      relation :electricity_collection, :one
+    relation :edi, :one
+    relation :electricity_collection, :one
   end
 end

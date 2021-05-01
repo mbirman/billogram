@@ -6,54 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: TreatCommentsAsGroupSeparators, ConsiderPunctuation, Include.
-# Include: **/*.gemspec
-Gemspec/OrderedDependencies:
-  Exclude:
-    - 'billogram.gemspec'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Layout/EmptyLineAfterMagicComment:
-  Exclude:
-    - 'billogram.gemspec'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EmptyLineBetweenMethodDefs, EmptyLineBetweenClassDefs, EmptyLineBetweenModuleDefs, AllowAdjacentOneLineDefs, NumberOfEmptyLines.
-Layout/EmptyLineBetweenDefs:
-  Exclude:
-    - 'lib/billogram/error.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: normal, indented_internal_methods
-Layout/IndentationConsistency:
-  Exclude:
-    - 'lib/billogram/resources/regional_sweden.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'lib/billogram/resources/regional_sweden.rb'
-
-# Offense count: 1
-# Configuration parameters: IgnoredMethods.
-Lint/AmbiguousBlockAssociation:
-  Exclude:
-    - 'spec/support/shared_examples/resource_with_endpoint.rb'
-
-# Offense count: 1
-# Configuration parameters: AllowSafeAssignment.
-Lint/AssignmentInCondition:
-  Exclude:
-    - 'lib/billogram/relation_builder.rb'
-
 # Offense count: 6
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 # IgnoredMethods: refine
@@ -75,14 +27,6 @@ RSpec/AnyInstance:
 RSpec/ExampleLength:
   Max: 9
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: method_call, block
-RSpec/ExpectChange:
-  Exclude:
-    - 'spec/support/shared_examples/resource_with_endpoint.rb'
-
 # Offense count: 14
 # Configuration parameters: .
 # SupportedStyles: have_received, receive
@@ -92,14 +36,6 @@ RSpec/MessageSpies:
 # Offense count: 4
 RSpec/MultipleExpectations:
   Max: 9
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: not_to, to_not
-RSpec/NotToNot:
-  Exclude:
-    - 'spec/support/shared_examples/resource_with_endpoint.rb'
 
 # Offense count: 4
 RSpec/SubjectStub:
@@ -112,91 +48,3 @@ RSpec/SubjectStub:
 RSpec/VerifiedDoubles:
   Exclude:
     - 'spec/billogram/item_spec.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: prefer_alias, prefer_alias_method
-Style/Alias:
-  Exclude:
-    - 'lib/billogram/resources/customer.rb'
-    - 'lib/billogram/resources/item.rb'
-    - 'lib/billogram/resources/report.rb'
-
-# Offense count: 13
-# Configuration parameters: AllowedConstants.
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/billogram.rb'
-    - 'lib/billogram/client.rb'
-    - 'lib/billogram/endpoint.rb'
-    - 'lib/billogram/error.rb'
-    - 'lib/billogram/relation.rb'
-    - 'lib/billogram/relation_builder.rb'
-    - 'lib/billogram/request.rb'
-    - 'lib/billogram/resource.rb'
-    - 'lib/billogram/resources/invoice.rb'
-    - 'lib/billogram/resources/item.rb'
-    - 'lib/billogram/resources/logotype.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/Encoding:
-  Exclude:
-    - 'billogram.gemspec'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/ExpandPathArguments:
-  Exclude:
-    - 'billogram.gemspec'
-    - 'spec/spec_helper.rb'
-    - 'spec/support/helper.rb'
-
-# Offense count: 1
-# Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Exclude:
-    - 'lib/billogram/relation_builder.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: literals, strict
-Style/MutableConstant:
-  Exclude:
-    - 'lib/billogram/resources/invoice.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'billogram.gemspec'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantFileExtensionInRequire:
-  Exclude:
-    - 'lib/billogram/resource.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/RedundantInterpolation:
-  Exclude:
-    - 'lib/billogram/endpoint.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantPercentQ:
-  Exclude:
-    - 'billogram.gemspec'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: MinSize.
-# SupportedStyles: percent, brackets
-Style/SymbolArray:
-  EnforcedStyle: brackets
