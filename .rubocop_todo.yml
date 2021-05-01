@@ -41,14 +41,6 @@ Layout/EmptyLineBetweenDefs:
   Exclude:
     - 'lib/billogram/error.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
-Layout/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'lib/billogram/error.rb'
-
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: AllowMultipleStyles, EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle.
@@ -73,77 +65,6 @@ Layout/IndentationConsistency:
 Layout/IndentationWidth:
   Exclude:
     - 'lib/billogram/resources/regional_sweden.rb'
-
-# Offense count: 10
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceBeforeBlockBraces:
-  Exclude:
-    - 'lib/billogram/resource.rb'
-    - 'spec/relation_builder_spec.rb'
-    - 'spec/request_spec.rb'
-    - 'spec/support/shared_examples/resource_with_endpoint.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBrackets: space, no_space
-Layout/SpaceInsideArrayLiteralBrackets:
-  Exclude:
-    - 'lib/billogram/resources/invoice.rb'
-
-# Offense count: 22
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideBlockBraces:
-  Exclude:
-    - 'lib/billogram/resource.rb'
-    - 'spec/relation_builder_spec.rb'
-    - 'spec/request_spec.rb'
-    - 'spec/resource_spec.rb'
-    - 'spec/spec_helper.rb'
-    - 'spec/support/shared_examples/resource_with_endpoint.rb'
-
-# Offense count: 31
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideHashLiteralBraces:
-  Exclude:
-    - 'lib/billogram/client.rb'
-    - 'lib/billogram/resources/invoice.rb'
-    - 'spec/relation_builder_spec.rb'
-    - 'spec/request_spec.rb'
-    - 'spec/resource_spec.rb'
-    - 'spec/resources/logotype_spec.rb'
-    - 'spec/support/shared_examples/resource_with_endpoint.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: space, no_space
-Layout/SpaceInsideParens:
-  Exclude:
-    - 'lib/billogram/resources/invoice.rb'
-
-# Offense count: 10
-# Cop supports --auto-correct.
-# Configuration parameters: AllowInHeredoc.
-Layout/TrailingWhitespace:
-  Exclude:
-    - 'lib/billogram/endpoint.rb'
-    - 'spec/relation_builder_spec.rb'
-    - 'spec/resources/customer_spec.rb'
-    - 'spec/resources/event_spec.rb'
-    - 'spec/resources/item_spec.rb'
-    - 'spec/resources/report_spec.rb'
-    - 'spec/resources/settings_spec.rb'
 
 # Offense count: 2
 # Configuration parameters: IgnoredMethods.

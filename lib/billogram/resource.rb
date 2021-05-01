@@ -17,7 +17,7 @@ module Billogram
       def build_objects(data)
         case data
         when Hash then new(data)
-        when Array then data.map{|item| build_objects(item) }
+        when Array then data.map { |item| build_objects(item) }
         else data
         end
       end

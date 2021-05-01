@@ -2,7 +2,6 @@
 
 module Billogram
   class Error < StandardError
-
     class BadRequest < Error; end
     class Unauthorized < Error; end
     class Forbidden < Error; end

@@ -12,7 +12,7 @@ describe Billogram::Event do
     it { is_expected.to respond_to(:type) }
 
     it 'has relations' do
-      expect(event.data).to be_a(Billogram::Data) 
+      expect(event.data).to be_a(Billogram::Data)
     end
   end
 end

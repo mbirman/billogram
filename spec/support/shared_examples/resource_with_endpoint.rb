@@ -8,12 +8,13 @@ shared_examples_for :resource_with_endpoint do |endpoint|
 
     describe 'with parameter' do
       it 'sets endpoint' do
-        expect{described_class.endpoint('test-value')}.to change{described_class.endpoint}.from(endpoint).to('test-value')
+        expect { described_class.endpoint('test-value') }
+          .to change { described_class.endpoint }.from(endpoint).to('test-value')
       end
 
       it "doesn't change endpont to nil" do
         described_class.endpoint('test-value')
-        expect{described_class.endpoint(nil)}.to_not change{described_class.endpoint}
+        expect { described_class.endpoint(nil) }.to_not change { described_class.endpoint }
       end
     end
 
@@ -56,7 +57,7 @@ shared_examples_for :resource_with_endpoint do |endpoint|
     end
 
     describe 'with parameters' do
-      let(:search_params) { { page_size: 5, page: 2} }
+      let(:search_params) { { page_size: 5, page: 2 } }
 
       it 'overrides default options' do
         expect(described_class).to receive(:perform_request).with(:get, endpoint, search_params)

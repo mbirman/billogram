@@ -9,12 +9,12 @@ describe Billogram::Resource do
     before { allow_any_instance_of(described_class).to receive('attribute=') }
 
     describe 'when hash given' do
-      let(:argument) { {attribute: 'test'} }
-      it { is_expected.to be_a(Billogram::Resource)}
+      let(:argument) { { attribute: 'test' } }
+      it { is_expected.to be_a(Billogram::Resource) }
     end
 
     describe 'when array given' do
-      let(:argument) { [{attribute: 'test'}, {attribute: 'test2'}] }
+      let(:argument) { [{ attribute: 'test' }, { attribute: 'test2' }] }
 
       it { is_expected.to be_a(Array) }
 
@@ -34,7 +34,7 @@ describe Billogram::Resource do
     describe 'when string given' do
       let(:argument) { 'test' }
 
-      it { is_expected.to eq('test')}
+      it { is_expected.to eq('test') }
     end
   end
 
@@ -89,7 +89,7 @@ describe Billogram::Resource do
     end
 
     it 'shows warning' do
-      described_class.new({key: 'test'})
+      described_class.new(key: 'test')
       $stderr.rewind
       expect($stderr.string.chomp).to eq('Billogram::Resource: unknown attribute key')
     end

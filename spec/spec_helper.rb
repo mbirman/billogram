@@ -5,7 +5,7 @@ require 'billogram'
 require 'webmock/rspec'
 require 'dotenv'
 
-Dir['./spec/support/**/*.rb'].sort.each { |f| require f}
+Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
 Dotenv.load
 

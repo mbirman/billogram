@@ -19,7 +19,7 @@ module Billogram
 
     module ClassMethods
       attr_writer :default_search_options
-      
+
       def default_search_options
         @default_search_options ||= { page: 1, page_size: 50 }
       end

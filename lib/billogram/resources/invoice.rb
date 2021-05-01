@@ -25,7 +25,7 @@ module Billogram
     relation :events, :many
     relation :automatic_reminders_settings, :many, class_override: 'AutomaticReminder'
 
-    COMMANDS = [ :sell, :remind, :collect, :writeoff, :resend, :remind, :payment, :credit, :message, :attach ]
+    COMMANDS = [:sell, :remind, :collect, :writeoff, :resend, :remind, :payment, :credit, :message, :attach]
 
     COMMANDS.each do |command|
       define_method command do |*args|
@@ -33,8 +33,8 @@ module Billogram
       end
     end
 
-    def send!(method: )
-      send_command(:send, {method: method})
+    def send!(method:)
+      send_command(:send, { method: method })
     end
 
     private
