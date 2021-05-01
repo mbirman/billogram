@@ -17,7 +17,6 @@ describe Billogram::Data do
   it { is_expected.to respond_to(:ip) }
   it { is_expected.to respond_to(:type) }
   it { is_expected.to respond_to(:message) }
-  it { is_expected.to respond_to(:message) }
   it { is_expected.to respond_to(:collector_method) }
   it { is_expected.to respond_to(:collector_reference) }
   it { is_expected.to respond_to(:factoring_method) }

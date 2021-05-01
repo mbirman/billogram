@@ -11,7 +11,7 @@ describe Billogram::Resource do
     describe 'when hash given' do
       let(:argument) { { attribute: 'test' } }
 
-      it { is_expected.to be_a(Billogram::Resource) }
+      it { is_expected.to be_a(described_class) }
     end
 
     describe 'when array given' do
@@ -20,9 +20,7 @@ describe Billogram::Resource do
       it { is_expected.to be_a(Array) }
 
       it 'returns array of instances' do
-        built_objects.each do |item|
-          expect(item).to be_a(Billogram::Resource)
-        end
+        expect(built_objects).to all(be_a(described_class))
       end
     end
 
@@ -75,28 +73,16 @@ describe Billogram::Resource do
     end
 
     it 'calls #to_hash on every item in array' do
-      array.each do |item|
-        expect(item).to receive(:to_hash)
-      end
+      expect(array).to all(receive(:to_hash))
 
       resource.to_hash
     end
   end
 
   describe 'unknown attribute' do
-    before do
-      @orig_stderr = $stderr
-      $stderr = StringIO.new
-    end
-
-    after do
-      $stderr = @orig_stderr
-    end
-
     it 'shows warning' do
-      described_class.new(key: 'test')
-      $stderr.rewind
-      expect($stderr.string.chomp).to eq('Billogram::Resource: unknown attribute key')
+      expect { described_class.new(key: 'test') }
+        .to output("Billogram::Resource: unknown attribute key\n").to_stderr
     end
   end
 end

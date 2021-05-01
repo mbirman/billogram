@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples_for :resource_with_endpoint do |endpoint|
+shared_examples_for 'resource with endpoint' do |endpoint|
   describe '.endpoint' do
     after do
       described_class.endpoint(endpoint)

@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::Item do
-  it_behaves_like :resource_with_endpoint, 'item'
+  it_behaves_like 'resource with endpoint', 'item'
 
   describe 'initialization' do
     subject(:item) { described_class.new(fixture('item')) }

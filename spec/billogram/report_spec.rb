@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::Report do
-  it_behaves_like :resource_with_endpoint, 'report'
+  it_behaves_like 'resource with endpoint', 'report'
 
   describe 'initialization' do
     subject(:report) { described_class.new }

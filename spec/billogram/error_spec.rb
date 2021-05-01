@@ -8,7 +8,7 @@ ERRORS = {
   'Forbidden' => 403,
   'NotFound' => 404,
   'InternalServerError' => 500
-}
+}.freeze
 
 describe Billogram::Error do
   subject { described_class.from_response(response) }
@@ -31,7 +31,7 @@ describe Billogram::Error do
     let(:status) { 502 }
 
     it 'returns Error' do
-      expect(described_class.from_response(response)).to be_a(Billogram::Error)
+      expect(described_class.from_response(response)).to be_a(described_class)
     end
   end
 end
