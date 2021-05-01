@@ -2,22 +2,20 @@ require 'spec_helper'
 
 describe Billogram::Relation do
   describe "#relation_class" do
-    subject { described_class.new(*params).relation_class }
-
     describe "one" do
-      let(:params) { [:customer, :one] }
+      subject { described_class.new(:customer, :one).relation_class }
 
       it { is_expected.to eq(Billogram::Customer) }
     end
 
     describe "many" do
-      let(:params) { [:items, :many] }
+      subject { described_class.new(:items, :many).relation_class }
 
       it { is_expected.to eq(Billogram::Item) }
     end
 
     describe "with class override" do
-      let(:params) { [:invoices, :one, class_override: "InvoiceDefaults"] }
+      subject { described_class.new(:invoices, :one, class_override: "InvoiceDefaults").relation_class }
 
       it { is_expected.to eq(Billogram::InvoiceDefaults) }
     end
