@@ -10,6 +10,7 @@ describe Billogram::Resource do
 
     describe 'when hash given' do
       let(:argument) { { attribute: 'test' } }
+
       it { is_expected.to be_a(Billogram::Resource) }
     end
 
@@ -55,11 +56,11 @@ describe Billogram::Resource do
   end
 
   describe '#to_hash' do
+    subject(:resource) { described_class.new }
+
     let(:array) { [described_class.new, described_class.new] }
     let(:mocked_resource) { described_class.new }
     let(:instance_variables) { [:@array, :@resource] }
-
-    subject(:resource) { described_class.new }
 
     before do
       allow(resource).to receive(:instance_variables).and_return(instance_variables)
@@ -88,14 +89,14 @@ describe Billogram::Resource do
       $stderr = StringIO.new
     end
 
+    after do
+      $stderr = @orig_stderr
+    end
+
     it 'shows warning' do
       described_class.new(key: 'test')
       $stderr.rewind
       expect($stderr.string.chomp).to eq('Billogram::Resource: unknown attribute key')
-    end
-
-    after do
-      $stderr = @orig_stderr
     end
   end
 end

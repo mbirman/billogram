@@ -138,12 +138,6 @@ RSpec/ExpectOutput:
   Exclude:
     - 'spec/resource_spec.rb'
 
-# Offense count: 25
-# Configuration parameters: Include, CustomTransform, IgnoreMethods, SpecSuffixOnly.
-# Include: **/*_spec*rb*, **/spec/**/*
-RSpec/FilePath:
-  Enabled: false
-
 # Offense count: 1
 # Cop supports --auto-correct.
 RSpec/HooksBeforeExamples:

@@ -3,9 +3,9 @@
 require 'spec_helper'
 
 describe Billogram::Request do
-  let(:params) { { attribute: 'value' } }
-
   subject(:request) { described_class.new(:get, 'test', params) }
+
+  let(:params) { { attribute: 'value' } }
 
   describe '#execute' do
     before do
