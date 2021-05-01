@@ -40,19 +40,18 @@ module Billogram
     end
 
     def to_hash
-      instance_variables
-        .each_with_object({}) do |variable, obj|
-          value = instance_variable_get(variable)
+      instance_variables.each_with_object({}) do |variable, obj|
+        value = instance_variable_get(variable)
 
-          case value
-          when Resource
-            value = value.to_hash
-          when Array
-            value = value.map(&:to_hash)
-          end
-
-          obj[variable[1..-1]] = value
+        case value
+        when Resource
+          value = value.to_hash
+        when Array
+          value = value.map(&:to_hash)
         end
+
+        obj[variable[1..-1]] = value
+      end
     end
   end
 end

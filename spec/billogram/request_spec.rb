@@ -9,7 +9,7 @@ describe Billogram::Request do
 
   describe '#execute' do
     before do
-      allow(request).to receive(:response).and_return(response)
+      allow(Billogram.client).to receive(:get).with('/test', query: params).and_return(response)
     end
 
     describe 'successfull' do

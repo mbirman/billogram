@@ -6,45 +6,8 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 6
-# Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
-# IgnoredMethods: refine
-Metrics/BlockLength:
-  Max: 76
-
-# Offense count: 1
-# Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
-Metrics/MethodLength:
-  Max: 11
-
-# Offense count: 1
-RSpec/AnyInstance:
-  Exclude:
-    - 'spec/billogram/resource_spec.rb'
-
-# Offense count: 2
-# Configuration parameters: CountAsOne.
-RSpec/ExampleLength:
-  Max: 9
-
 # Offense count: 14
 # Configuration parameters: .
 # SupportedStyles: have_received, receive
 RSpec/MessageSpies:
   EnforcedStyle: receive
-
-# Offense count: 4
-RSpec/MultipleExpectations:
-  Max: 9
-
-# Offense count: 4
-RSpec/SubjectStub:
-  Exclude:
-    - 'spec/billogram/request_spec.rb'
-    - 'spec/billogram/resource_spec.rb'
-
-# Offense count: 1
-# Configuration parameters: IgnoreNameless, IgnoreSymbolicNames.
-RSpec/VerifiedDoubles:
-  Exclude:
-    - 'spec/billogram/item_spec.rb'

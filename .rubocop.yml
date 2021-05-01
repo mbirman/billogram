@@ -23,3 +23,10 @@ Style/SymbolArray:
 
 Style/Documentation:
   Enabled: false
+
+Metrics/BlockLength:
+  IgnoredMethods: [
+    'describe',
+    'context',
+    'shared_examples_for'
+  ]

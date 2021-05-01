@@ -22,14 +22,4 @@ describe Billogram::Item do
   it { is_expected.to have_relation(:regional_sweden, Billogram::RegionalSweden) }
 
   it { is_expected.to alias_id(:item_no) }
-
-  describe '#delete' do
-    it 'deletes item' do
-      allow(Billogram.client).to receive(:delete) { double(success?: true, :[] => []) }
-
-      expect(Billogram.client).to receive(:delete).with('/item/1', {})
-
-      described_class.new(item_no: 1).delete
-    end
-  end
 end

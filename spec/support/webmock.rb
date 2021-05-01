@@ -8,6 +8,6 @@ RSpec.configure do |config|
   config.before do
     WebMock
       .stub_request(:any, /#{ENV['BILLOGRAM_BASE_URI']}.*/)
-      .to_return(status: 200, body: {}.to_json)
+      .to_return(status: 200, body: { data: {} }.to_json)
   end
 end
