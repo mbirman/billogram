@@ -1,46 +1,46 @@
 {
-    "billogram": {
-        "id": "2kAEEjE",
-        "ocr_number": "9999437500039365",
-        "state": "PartlyPaid",
-        "remaining_sum": 13000,
-        "total_sum": 13775,
-        "attested_at": "2015-11-15 15:25:05",
-        "detailed_sums": {
-            "credited_sum": 0,
-            "net_sum": 11640.15,
-            "gross_sum": 13775.108,
-            "invoice_fee_vat": 12,
-            "paid_sum": -775,
-            "interest_fee": 0,
-            "vat_sum": 2134.958,
-            "reminder_fee": 0,
-            "invoice_fee": 25,
-            "rounding": -0.108,
-            "regional_sweden": {
-                "rotavdrag_sum": 0
-            },
-            "collector_paid_sum": 0,
-            "remaining_sum": 13000
-        }
+  "billogram": {
+    "attested_at": "2021-04-06 09:58:18",
+    "detailed_sums": {
+      "collector_paid_sum": 0,
+      "credited_sum": 0,
+      "gross_sum": 2866.63,
+      "interest_fee": 0,
+      "invoice_fee": 0,
+      "invoice_fee_vat": 0,
+      "net_sum": 2293.3,
+      "paid_sum": -2867,
+      "regional_sweden": {
+        "rotavdrag_sum": 0
+      },
+      "remaining_sum": 0,
+      "reminder_fee": 0,
+      "rounding": 0.365,
+      "vat_sum": 573.33
     },
-    "event": {
-        "type": "Payment",
-        "event_uuid": "4a5750bc-80df-4132-9413-e11acb30eb09",
-        "created_at": "2015-12-04 13:28:51",
-        "data": {
-            "total_sum": 13775,
-            "payer_name": null,
-            "manual": true,
-            "remaining_sum": 13000,
-            "amount": 775,
-            "banking_amount": null,
-            "payment_flags": []
-        }
+    "id": "W3fsFXgk",
+    "ocr_number": "3772899934012",
+    "remaining_sum": 0,
+    "state": "Unpaid",
+    "total_sum": 2867
+  },
+  "callback_id": "003ee8ee-4a49-92b5-3abb-e886dcb2ee75",
+  "callback_timestamp": "2021-04-30T11:07:33.401381Z",
+  "callback_type": "BillogramEvent",
+  "custom": null,
+  "event": {
+    "created_at": "2021-04-30 11:07:33",
+    "data": {
+      "amount": 2867,
+      "banking_amount": null,
+      "manual": false,
+      "payer_name": "Peter Jonsson",
+      "payment_flags": [],
+      "remaining_sum": 0,
+      "total_sum": 2867
     },
-    "callback_id": "9ec1c43a-0272-46f0-b4c2-9fe53acdb861",
-    "callback_timestamp": "2015-12-04T13:28:51.706784Z",
-    "callback_type": "BillogramEvent",
-    "custom": null,
-    "signature": "360c5b6b83ad0ca7fb2eedd04052aec9"
+    "event_uuid": "90b3cf46-b0e0-d49f-9b4b-b44974e1e9e9",
+    "type": "Payment"
+  },
+  "signature": null
 }

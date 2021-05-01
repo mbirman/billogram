@@ -1,10 +1,15 @@
 {
-    "item_no": "3004202",
-    "title": "Wooden pole (⌀ 60cm)",
-    "description": "Untreated pine wood, originated in northern Sweden",
-    "price": 43.6,
-    "vat": 25,
-    "unit": "meter",
+    "title" : "Software, administration features",
+    "price" : 300,
+    "vat" : 25,
+    "unit" : "hour",
+    "count" : 1,
+    "discount" : 0,
+    "item_no" : "3",
+    "description" :"",
+    "regional_sweden" : {
+        "rotavdrag" :false
+    },
     "bookkeeping": {
         "income_account": 1,
         "vat_account": null

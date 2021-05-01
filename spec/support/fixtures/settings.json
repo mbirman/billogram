@@ -1,67 +1,130 @@
-{  
-   "address":{  
-      "careof":"",
-      "city":"Exempelköping",
-      "country":"SE",
-      "street_address":"Långgatan 10",
-      "zipcode":"23456"
-   },
-   "bookkeeping":{  
-      "account_receivable_account":"1500",
-      "banking_account":"1920",
-      "client_funds_account":"1940",
-      "factoring_receivable_account":"",
-      "income_account_for_vat_0":"3004",
-      "income_account_for_vat_12":"3002",
-      "income_account_for_vat_25":"3001",
-      "income_account_for_vat_6":"3003",
-      "interest_fee_account":"8313",
-      "regional_sweden":{  
-         "rotavdrag_account":"1513"
+{
+  "registration_email": "billing@example.com",
+  "name": "ACME INC",
+  "registered_office_address": {
+    "city": null,
+    "name": null,
+    "country": null,
+    "zipcode": null,
+    "careof": null,
+    "street_address": null
+  },
+  "invoices": {
+    "use_automatic_reminders_partly_paid": false,
+    "show_item_gross_prices": false,
+    "default_interest_rate": 8.5,
+    "default_reminder_fee": 50,
+    "default_message": "",
+    "default_invoice_fee": 0,
+    "show_new_account_notice": false,
+    "automatic_collection": {
+      "amount": null,
+      "delay_days": null
+    },
+    "automatic_reminders_minimum_principal_sum": null,
+    "automatic_writeoff": {
+      "amount": null,
+      "settings": null
+    },
+    "automatic_reminders": [
+      {
+        "message": "First reminder",
+        "delay_days": "5"
       },
-      "reminder_fee_account":"8313",
-      "reversed_vat_account":"3231",
-      "rounding_account":"3740",
-      "vat_account_for_vat_12":"2620",
-      "vat_account_for_vat_25":"2610",
-      "vat_account_for_vat_6":"2630"
-   },
-   "contact":{  
-      "name":"Sonja",
-      "phone":"",
-      "email":"billing@example.com"
-   },
-   "invoices":{  
-      "automatic_reminders":[  
-         {
-            "message":"",
-            "delay_days":"5"
-         }
-      ],
-      "default_interest_rate":8.5,
-      "default_invoice_fee":0.0,
-      "default_message":"",
-      "default_reminder_fee":50
-   },
-   "name":"Testbolaget AB",
-   "org_no":"848484-2326",
-   "payment":{  
-      "bankgiro":"1234-5678",
-      "domestic_bank_account":{  
-         "account_no":"",
-         "clearing_no":""
-      },
-      "international_bank_account":{  
-         "bank":"",
-         "bic":"",
-         "iban":"",
-         "swift":""
-      },
-      "plusgiro":""
-   },
-   "tax":{  
-      "has_fskatt":true,
-      "is_vat_registered":true,
-      "vat_no":""
-   }
+      {
+        "message": "Second reminder",
+        "delay_days": "1"
+      }
+    ],
+    "reminders_without_fee": [],
+    "pdf": {
+      "template": ""
+    }
+  },
+  "visiting_address": {
+    "city": null,
+    "careof": null,
+    "zipcode": null,
+    "street_address": null,
+    "country": null
+  },
+  "tax": {
+    "vat_no": "",
+    "has_fskatt": true,
+    "is_vat_registered": true
+  },
+  "return_address": {
+    "city": null,
+    "name": null,
+    "country": null,
+    "zipcode": null,
+    "careof": null,
+    "street_address": null
+  },
+  "contact": {
+    "name": "Sonja",
+    "phone": "",
+    "email": "billing@example.com",
+    "www": ""
+  },
+  "invoice_address": {
+    "city": null,
+    "country": null,
+    "zipcode": null,
+    "careof": null,
+    "email": null,
+    "street_address": null
+  },
+  "address": {
+    "careof": "",
+    "city": "Exempelköping",
+    "country": "SE",
+    "street_address": "Långgatan 10",
+    "zipcode": "23456"
+  },
+  "bookkeeping": {
+    "vat_account_for_vat_12": "2620",
+    "factoring_receivable_account": "1512",
+    "expected_loss_account": "6352",
+    "rounding_account": "3740",
+    "income_account_for_vat_25": "3001",
+    "client_funds_account": "1940",
+    "income_payout_account": "3005",
+    "banking_account": "1920",
+    "debt_collection_funds_account": "1941",
+    "sie_continuous_numbering": "monthly",
+    "reversed_vat_account": "3231",
+    "vat_account_for_vat_6": "2630",
+    "financial_year_months": 12,
+    "reminder_fee_account": "8313",
+    "income_account_for_vat_12": "3002",
+    "vat_account_for_vat_25": "2610",
+    "account_receivable_account": "1500",
+    "financial_year_start": "2021-01",
+    "sie_serie": "",
+    "non_allocated_account": "2800",
+    "written_down_receivables_account": "1519",
+    "regional_sweden": {
+      "rotavdrag_account": "1513"
+    },
+    "liabilities_customers_account": "2420",
+    "interest_fee_account": "8313",
+    "income_account_for_vat_6": "3003",
+    "income_account_for_vat_0": "3004"
+  },
+  "payment": {
+    "bankgiro": "1234567",
+    "domestic_bank_account": {
+      "clearing_no": "",
+      "account_no": ""
+    },
+    "plusgiro": "",
+    "international_bank_account": {
+      "iban": "SE0012345678",
+      "swift": "",
+      "bic": "BILLOSESS",
+      "bank": ""
+    }
+  },
+  "org_no": "777777-7777"
 }
