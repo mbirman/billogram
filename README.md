@@ -1,5 +1,5 @@
 # Billogram
-![](https://github.com/mbirman/billogram/workflows/Test/badge.svg)
+[![Gem Version](https://badge.fury.io/rb/billogram.svg)](https://badge.fury.io/rb/billogram) ![](https://github.com/mbirman/billogram/workflows/Test/badge.svg)
 
 Simple ruby wrapper for [Billogram](https://billogram.com) API
 
