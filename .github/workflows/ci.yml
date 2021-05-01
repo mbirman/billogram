@@ -1,4 +1,4 @@
-name: Test
+name: CI
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
     - "*"
 
 jobs:
-  bundler:
+  rspec:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,3 +25,12 @@ jobs:
         bundler-cache: true
     - name: Run tests
       run: bundle exec rspec
+
+  rubocop:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: andrewmcodes/rubocop-linter-action@v3.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

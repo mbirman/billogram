@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Simple ruby wrapper for Billogram API}
 
   spec.summary       = "Ruby library providing access to Billogram API"
-  spec.homepage      = "http://github.com/mbirman/billogram"
+  spec.homepage      = "https://github.com/mbirman/billogram"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -26,6 +26,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock", "~> 3.7"
   spec.add_development_dependency "dotenv", "~> 2.7"
   spec.add_development_dependency "byebug"
+  spec.add_development_dependency "rubocop", "~> 1.13"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.3"
 
   spec.add_dependency "httparty", "~> 0.17.1"
   spec.add_dependency "activesupport", ">= 5.2", "< 7"
