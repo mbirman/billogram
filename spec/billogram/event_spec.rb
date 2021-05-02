@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::Event do
-  subject { described_class.new(fixture('event')) }
+  subject { build(described_class) }
 
   it_behaves_like 'resource with endpoint', 'billogram_event'
 

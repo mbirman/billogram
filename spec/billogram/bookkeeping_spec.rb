@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::Bookkeeping do
-  subject { described_class.new(fixture('bookkeeping')) }
+  subject { build(described_class) }
 
   it { is_expected.to respond_to(:income_account_for_vat_25) }
   it { is_expected.to respond_to(:income_account_for_vat_12) }

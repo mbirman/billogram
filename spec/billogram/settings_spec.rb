@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::Settings do
-  subject { described_class.new(fixture('settings')) }
+  subject { build(described_class) }
 
   it_behaves_like 'resource with endpoint', 'settings'
 

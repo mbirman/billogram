@@ -16,6 +16,12 @@ def stub_delete(url)
   stub_request(:delete, url_regexp(url))
 end
 
+def build(described_class, fixture_name = nil)
+  fixture_name ||= described_class.name.demodulize.underscore
+
+  described_class.new(fixture(fixture_name))
+end
+
 def url_regexp(url)
   /.*billogram.*#{url}/
 end
@@ -25,11 +31,13 @@ def fixture_path
 end
 
 def raw_fixture(file)
-  File.new("#{fixture_path}/#{file}.json")
+  File.open("#{fixture_path}/#{file}.json")
 end
 
 def fixture(file)
   JSON.parse(raw_fixture(file).read)
+rescue Errno::ENOENT
+  {}
 end
 
 def json_response(file)

@@ -3,8 +3,6 @@
 require 'spec_helper'
 
 describe Billogram::Report do
-  subject(:report) { described_class.new }
-
   it_behaves_like 'resource with endpoint', 'report'
 
   it { is_expected.to respond_to(:filename) }

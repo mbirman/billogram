@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::InvoiceDefaults do
-  subject { described_class.new(fixture('settings')['invoices']) }
+  subject { described_class.new(fixture('settings').fetch('invoices')) }
 
   it { is_expected.to respond_to(:default_message) }
   it { is_expected.to respond_to(:default_interest_rate) }

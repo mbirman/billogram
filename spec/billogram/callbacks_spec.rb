@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Billogram::Callbacks do
-  subject { described_class.new(fixture('callback')) }
+  subject { build(described_class) }
 
   it { is_expected.to respond_to(:callback_id) }
   it { is_expected.to respond_to(:custom) }
