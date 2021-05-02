@@ -9,12 +9,13 @@ describe Billogram::Request do
 
   describe '#execute' do
     before do
-      allow(Billogram.client).to receive(:get).with('/test', query: params).and_return(response)
+      url = "#{ENV['BILLOGRAM_BASE_URI']}/test?#{URI.encode_www_form(params)}"
+      stub_request(:get, url).to_return(response)
     end
 
     describe 'successfull' do
-      let(:data) { { name: 'Bill' } }
-      let(:response) { OpenStruct.new(success?: true, data: data) }
+      let(:data) { { 'name' => 'Bill' } }
+      let(:response) { { status: 200, body: { data: data }.to_json } }
 
       it 'returns data hash' do
         expect(request.execute).to eq(data)
@@ -22,7 +23,9 @@ describe Billogram::Request do
     end
 
     describe 'failed' do
-      let(:response) { OpenStruct.new(success?: false, code: 500, data: {}) }
+      let(:response) do
+        { status: 500, body: '{}' }
+      end
 
       it 'raises Billogram::Error' do
         expect { request.execute }.to raise_error(Billogram::Error)
