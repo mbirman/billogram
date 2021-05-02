@@ -12,6 +12,11 @@ on:
 
 jobs:
   rspec:
+    name: RSpec
+    env:
+      BILLOGRAM_BASE_URI: https://sandbox.billogram.com/api/v2/
+      BILLOGRAM_USERNAME: 0000-RANDOM
+      BILLOGRAM_PASSWORD: 55e0cc0a4170f39641840dd4c8274f70
     runs-on: ubuntu-latest
     strategy:
       matrix:
